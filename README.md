@@ -35,13 +35,17 @@ To get a local copy up and running, follow these steps:
 
    ```bash
    npm install
+   ```
+
    This command will install all the necessary dependencies for the project
 
 3. **Start the development server**:
 
    ```bash
    npm start
-   Running this command will launch the app in development mode. Open http://localhost:5173 to view it in the browser.
+   ```
+
+   Running this command will launch the app in development mode. Open <http://localhost:5173> to view it in the browser.
 
 ## Usage
 
