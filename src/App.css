@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: none;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -9,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   display: grid;
-  padding: 20px;
+  padding: 0 20px;
   background: #000;
   place-items: center;
 }
@@ -18,5 +19,46 @@ body {
   width: 100%;
   height: 90dvh;
   background: #fff;
-  border-radius: 10px;
+}
+
+.ring {
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  z-index: 999;
+  position: fixed;
+  border-radius: 100%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(31, 30, 30, 0.808);
+  -webkit-transition-duration: 100ms;
+  transition-duration: 100ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  will-change: width, height, transform, border;
+}
+
+.dot {
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  z-index: 999;
+  position: fixed;
+  border-radius: 100%;
+  pointer-events: none;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
+.ring.hovered {
+  width: 50px;
+  height: 50px;
+  border-width: 3px;
+  border-color: lightgray;
+}
+
+.dot.hovered {
+  display: none;
 }
