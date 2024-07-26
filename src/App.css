@@ -29,16 +29,14 @@ body {
   left: 0;
   width: 22px;
   height: 22px;
-  z-index: 999;
+  z-index: 9999;
   position: fixed;
-  border-radius: 100%;
+  border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  border: 2px solid rgba(31, 30, 30, 0.808);
-  -webkit-transition-duration: 100ms;
   transition-duration: 100ms;
-  -webkit-transition-timing-function: ease-out;
+  transform: translate(-50%, -50%);
   transition-timing-function: ease-out;
+  border: 2px solid rgba(31, 30, 30, 0.808);
   will-change: width, height, transform, border;
 }
 
@@ -47,9 +45,9 @@ body {
   left: 50%;
   width: 8px;
   height: 8px;
-  z-index: 999;
+  z-index: 9999;
   position: fixed;
-  border-radius: 100%;
+  border-radius: 50%;
   pointer-events: none;
   background-color: black;
   transform: translate(-50%, -50%);
