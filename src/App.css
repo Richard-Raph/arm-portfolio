@@ -12,33 +12,27 @@ body {
   background: #000;
 }
 
-/* #root {
-  top: 50%;
-  left: 50%;
-  width: 95%;
-  height: 90dvh;
+#root {
+  width: 90%;
+  height: 900dvh;
   margin: 0 auto;
-  position: fixed;
-  overflow: scroll;
   background: #fff;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
-} */
+}
 
 .ring {
   top: 0;
   left: 0;
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   z-index: 9999;
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
-  transition-duration: 100ms;
+  transition-duration: 0.15s;
   transform: translate(-50%, -50%);
   transition-timing-function: ease-out;
-  border: 2px solid rgba(31, 30, 30, 0.808);
-  will-change: width, height, transform, border;
+  background-color: rgba(82, 163, 182, 0.5);
+  will-change: width, height, transform, background-color;
 }
 
 .dot {
@@ -50,7 +44,7 @@ body {
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
-  background-color: black;
+  background-color: #52A3B6;
   transform: translate(-50%, -50%);
 }
 
