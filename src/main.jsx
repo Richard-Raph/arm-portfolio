@@ -5,12 +5,15 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import ReactDOM from 'react-dom/client';
+import { TitleProvider } from './context/TitleContext';
 import MouseContextProvider from './context/MouseContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MouseContextProvider>
-      <App />
-    </MouseContextProvider>
+    <TitleProvider>
+      <MouseContextProvider>
+        <App />
+      </MouseContextProvider>
+    </TitleProvider>
   </React.StrictMode>,
 );
