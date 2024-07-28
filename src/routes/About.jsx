@@ -1,9 +1,14 @@
+import Layout from '../layouts/Layout';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 export default function About() {
-  useDocumentTitle('About | Richard Raphael');
+  useDocumentTitle('About ℹ Richard Raphael');
 
   return (
-        <>jbhilcg lugj g</>
+        <Layout>
+            <section>
+            
+            </section>
+        </Layout>
     );
 }
