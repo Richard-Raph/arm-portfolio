@@ -1,12 +1,10 @@
 import { useContext, useEffect } from 'react';
-import TitleContext from '../context/TitleContext';
+import TitleContext from '../contexts/TitleContext';
 
-function useDocumentTitle(newTitle) {
+export default function useDocumentTitle(newTitle) {
     const { setTitle } = useContext(TitleContext);
 
     useEffect(() => {
         setTitle(newTitle);
     }, [newTitle, setTitle]);
 }
-
-export default useDocumentTitle;
