@@ -35,7 +35,7 @@ const DockBar = () => {
           <FaGithub />
         </Link>
 
-        <Link to='https://twitter.com/your-profile' target='_blank' rel='noopener noreferrer' data-title='X'>
+        <Link to='https://x.com/rich_tech123' target='_blank' rel='noopener noreferrer' data-title='X'>
           <FaXTwitter />
         </Link>
 
@@ -43,7 +43,7 @@ const DockBar = () => {
           <FaLinkedin />
         </Link>
 
-        <Link to='mailto:arm.techtonic@gmail.com' data-title='Youtube'>
+        <Link to='https://www.youtube.com/@rich_tech123' data-title='Youtube'>
           <FaYoutube />
         </Link>
 
