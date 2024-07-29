@@ -4,6 +4,7 @@
   text-decoration: none;
   box-sizing: border-box;
   cursor: url('./assets/cursors/arrow.png'), auto;
+  font-family: "__Inter_aaf875", "__Inter_Fallback_aaf875", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 :root {
