@@ -95,6 +95,7 @@
 .dock-divider {
     width: 1px;
     height: 100%;
+    margin: 0.5rem;
     flex-shrink: 0;
     background: hsl(var(--border));
 }

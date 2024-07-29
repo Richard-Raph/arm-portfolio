@@ -2,8 +2,7 @@ import './DockBar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RxMoon } from 'react-icons/rx';
-import { MdBook } from 'react-icons/md';
-import { LuHome, LuCode2, LuSun } from 'react-icons/lu';
+import { LuHome, LuCode2, LuInfo, LuSun } from 'react-icons/lu';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 const DockBar = () => {
@@ -23,7 +22,7 @@ const DockBar = () => {
         </Link>
 
         <Link to='/about' data-title='About'>
-          <MdBook />
+          <LuInfo />
         </Link>
 
         <Link to='/project' data-title='Projects'>
@@ -32,25 +31,25 @@ const DockBar = () => {
 
         <i className='dock-divider'></i>
 
-        <a href='https://github.com/Richard-Raph' target='_blank' rel='noopener noreferrer' data-title='Github'>
+        <Link to='https://github.com/Richard-Raph' target='_blank' rel='noopener noreferrer' data-title='Github'>
           <FaGithub />
-        </a>
+        </Link>
 
-        <a href='https://twitter.com/your-profile' target='_blank' rel='noopener noreferrer' data-title='X'>
+        <Link to='https://twitter.com/your-profile' target='_blank' rel='noopener noreferrer' data-title='X'>
           <FaXTwitter />
-        </a>
+        </Link>
 
-        <a href='https://www.linkedin.com/in/rich-tech123/?lipi=urn%3Ali%3Apage%3Ad_flagship3_nurture_all%3BWPPhxjYEQXyxbtpJlgJYLg%3D%3D' target='_blank' rel='noopener noreferrer' data-title='LinkedIn'>
+        <Link to='https://www.linkedin.com/in/rich-tech123/?lipi=urn%3Ali%3Apage%3Ad_flagship3_nurture_all%3BWPPhxjYEQXyxbtpJlgJYLg%3D%3D' target='_blank' rel='noopener noreferrer' data-title='LinkedIn'>
           <FaLinkedin />
-        </a>
+        </Link>
 
-        <a href='mailto:arm.techtonic@gmail.com' data-title='Youtube'>
+        <Link to='mailto:arm.techtonic@gmail.com' data-title='Youtube'>
           <FaYoutube />
-        </a>
+        </Link>
 
         <i className='dock-divider'></i>
 
-        <span onClick={toggleDarkMode}>
+        <span onClick={toggleDarkMode} className='pointer'>
           {darkMode ? <RxMoon /> : <LuSun />}
         </span>
       </div>

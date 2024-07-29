@@ -52,13 +52,13 @@
   --destructive-foreground: 0 0% 98%;
 }
 
-a:hover,
+a,
 .pointer {
-  cursor: url('../assets/cursors/pointer.png'), auto;
+  cursor: url('./assets/cursors/pointer.png'), pointer;
 }
 
 .loading {
-  cursor: url('../assets/cursors/loading.png'), wait;
+  cursor: url('./assets/cursors/loading.png'), wait;
 }
 
 body {
@@ -70,7 +70,6 @@ body {
 
 #root {
   width: 90%;
-  height: 900dvh;
+  height: 90dvh;
   margin: 0 auto;
-  /* background: #000; */
 }
