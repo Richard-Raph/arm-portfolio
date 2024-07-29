@@ -1,4 +1,5 @@
 import './DockBar.css';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RxMoon } from 'react-icons/rx';
 import { MdBook } from 'react-icons/md';
@@ -6,6 +7,13 @@ import { LuHome, LuCode2, LuSun } from 'react-icons/lu';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 const DockBar = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle('dark', !darkMode);
+  };
+
   return (
     <nav className='dock-bar'>
       <div className='dock-background'></div>
@@ -42,9 +50,8 @@ const DockBar = () => {
 
         <i className='dock-divider'></i>
 
-        <span>
-          {/* <LuSun /> */}
-          <RxMoon />
+        <span onClick={toggleDarkMode}>
+          {darkMode ? <RxMoon /> : <LuSun />}
         </span>
       </div>
     </nav>
