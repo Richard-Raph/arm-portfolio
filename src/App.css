@@ -52,7 +52,9 @@
   --destructive-foreground: 0 0% 98%;
 }
 
-
+.text {
+  cursor: url('./assets/cursors/text.png'), text;
+}
 
 .loading {
   cursor: url('./assets/cursors/loading.png'), wait;
