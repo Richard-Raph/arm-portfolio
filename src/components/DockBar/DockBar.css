@@ -44,7 +44,7 @@
 .dock-links span {
     width: 2.5rem;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.3rem;
     font-weight: 500;
     position: relative;
     aspect-ratio: 1 / 1;
@@ -95,7 +95,18 @@
 .dock-divider {
     width: 1px;
     height: 100%;
-    margin: 0.5rem;
+    margin: 0.3rem;
     flex-shrink: 0;
     background: hsl(var(--border));
+}
+
+@media (min-width: 768px) {
+    .dock-links a,
+    .dock-links span {
+        padding: 0.6rem;
+    }
+
+    .dock-divider {
+        margin: 0.6rem;
+    }
 }
