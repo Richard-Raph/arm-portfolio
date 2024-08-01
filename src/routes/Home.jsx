@@ -5,9 +5,7 @@ export default function Home() {
 
   return (
     <section>
-      {/* <button className="button-57" role="button">
-        <span className="text">Button 57</span><span>Alternate text</span>
-      </button> */}
+    
     </section>
   );
 }

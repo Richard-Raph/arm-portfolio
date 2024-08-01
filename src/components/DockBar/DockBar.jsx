@@ -43,7 +43,7 @@ const DockBar = () => {
           <FaLinkedin />
         </Link>
 
-        <Link to='https://www.youtube.com/@rich_tech123' data-title='Youtube'>
+        <Link to='https://www.youtube.com/@rich_tech123' target='_blank' rel='noopener noreferrer' data-title='Youtube'>
           <FaYoutube />
         </Link>
 
