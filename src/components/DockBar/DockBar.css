@@ -43,22 +43,22 @@
 .dock-links a,
 .dock-links span {
     width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     padding: 0.3rem;
     font-weight: 500;
     position: relative;
-    aspect-ratio: 1 / 1;
-    white-space: nowrap;
     font-size: 0.875rem;
+    white-space: nowrap;
     align-items: center;
+    aspect-ratio: 1 / 1;
     border-radius: 9999px;
     justify-content: center;
     color: var(--accent-foreground);
     background: var(--accent-background);
-    transition: color .15s ease, background .15s ease;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition: all .15s cubic-bezier(.4,0,.2,1);
 }
-
+    
 .dock-links a[data-title]:hover::after {
     top: -2.3rem;
     margin: 0 auto;
@@ -73,8 +73,15 @@
     background: hsl(var(--foreground));
 }
 
+.dock-links a.active[data-title]:hover::after {
+    display: none;
+}
+
 .dock-links a:hover,
+.dock-links a.active,
 .dock-links span:hover {
+    width: 3rem;
+    height: 3rem;
     color: hsl(var(--accent-foreground));
     background-color: hsl(var(--accent));
 }

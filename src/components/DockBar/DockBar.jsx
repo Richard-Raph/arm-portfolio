@@ -1,7 +1,7 @@
 import './DockBar.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { RxMoon } from 'react-icons/rx';
+import { NavLink, Link } from 'react-router-dom';
 import { LuHome, LuCode2, LuInfo, LuSun } from 'react-icons/lu';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
@@ -17,17 +17,17 @@ const DockBar = () => {
     <nav className='dock-bar'>
       <div className='dock-background'></div>
       <div className='dock-links'>
-        <Link to='/' data-title='Home'>
+        <NavLink to='/' data-title='Home' exact='true' activeclassname='active'>
           <LuHome />
-        </Link>
+        </NavLink>
 
-        <Link to='/about' data-title='About'>
+        <NavLink to='/about' data-title='About' activeclassname='active'>
           <LuInfo />
-        </Link>
+        </NavLink>
 
-        <Link to='/project' data-title='Projects'>
+        <NavLink to='/project' data-title='Projects' activeclassname='active'>
           <LuCode2 />
-        </Link>
+        </NavLink>
 
         <i className='dock-divider'></i>
 
