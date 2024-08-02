@@ -82,6 +82,27 @@ body {
   background: hsl(var(--background));
 }
 
+body:not(.dark)>svg * {
+  opacity: 100%;
+  fill: hsl(var(--accentHi));
+}
+
+body>svg {
+  z-index: -1;
+  opacity: 50%;
+  position: fixed;
+}
+
+body>svg:nth-child(1) {
+  top: 0;
+  right: 0;
+}
+
+body>svg:nth-child(2) {
+  left: 0;
+  bottom: 0;
+}
+
 .circle div {
   height: 60px;
   width: 60px;
@@ -331,33 +352,6 @@ div .dot {
   50% {
     transform: translate(50%, 20%) rotate(-200deg) scale(1.3);
   }
-}
-
-body:not(.dark)>svg * {
-  opacity: 100%;
-  fill: hsl(var(--accentHi));
-}
-
-body:not(.dark)>svg g *,
-body:not(.dark)>svg rect:nth-child(1),
-body:not(.dark)>svg rect:nth-child(2) {
-  fill: hsl(var(--foreground));
-}
-
-body>svg {
-  z-index: -1;
-  opacity: 50%;
-  position: fixed;
-}
-
-body>svg:nth-child(1) {
-  top: 0;
-  right: 0;
-}
-
-body>svg:nth-child(2) {
-  left: 0;
-  bottom: 0;
 }
 
 #root {
