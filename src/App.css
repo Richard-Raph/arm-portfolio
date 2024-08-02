@@ -75,56 +75,290 @@ button,
 
 body {
   width: 100%;
+  position: relative;
   min-height: 100dvh;
   overflow-x: hidden;
   transition: all .3s ease;
   background: hsl(var(--background));
 }
 
-body:not(.dark) > svg * {
+.circle div {
+  height: 60px;
+  width: 60px;
+  border: 2px solid hsl(var(--accentHi));
+  border-radius: 50px;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  animation: 4s linear infinite;
+}
+
+div .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: hsl(var(--accentHi));
+  position: fixed;
+  top: 20%;
+  right: 20%;
+}
+
+.circle div:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+
+.circle div:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation: animate 10s linear infinite;
+}
+
+.circle div:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  animation: animate 3s linear infinite;
+}
+
+.circle div:nth-child(4) {
+  top: 66%;
+  left: 30%;
+  animation: animate 7s linear infinite;
+}
+
+.circle div:nth-child(5) {
+  top: 90%;
+  left: 10%;
+  animation: animate 9s linear infinite;
+}
+
+.circle div:nth-child(6) {
+  top: 30%;
+  left: 60%;
+  animation: animate 5s linear infinite;
+}
+
+.circle div:nth-child(7) {
+  top: 70%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+
+.circle div:nth-child(8) {
+  top: 75%;
+  left: 60%;
+  animation: animate 10s linear infinite;
+}
+
+.circle div:nth-child(9) {
+  top: 50%;
+  left: 50%;
+  animation: animate 6s linear infinite;
+}
+
+.circle div:nth-child(10) {
+  top: 45%;
+  left: 20%;
+  animation: animate 10s linear infinite;
+}
+
+.circle div:nth-child(11) {
+  top: 10%;
+  left: 90%;
+  animation: animate 9s linear infinite;
+}
+
+.circle div:nth-child(12) {
+  top: 20%;
+  left: 70%;
+  animation: animate 7s linear infinite;
+}
+
+.circle div:nth-child(13) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+
+.circle div:nth-child(14) {
+  top: 60%;
+  left: 5%;
+  animation: animate 6s linear infinite;
+}
+
+.circle div:nth-child(15) {
+  top: 90%;
+  left: 80%;
+  animation: animate 9s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(70deg);
+  }
+
+  100% {
+    transform: scale(1.3) translateY(-100px) rotate(360deg);
+  }
+}
+
+.shapes {
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  min-height: 100vh;
+  filter: blur(30px);
+}
+
+.blob {
+  background: #26C3F9;
+  height: 60px;
+  width: 80px;
+  border-radius: 40% 50% 30% 40%;
+  animation:
+    transform 18s ease-in-out infinite both alternate,
+    move_one 12s ease-in-out infinite both;
+  opacity: .7;
+  position: fixed;
+  left: 75%;
+  top: 40%;
+}
+
+.blob.one {
+  background: #0085FF;
+  height: 150px;
+  width: 200px;
+  left: 10px;
+  top: 30px;
+  transform: rotate(-180deg);
+  animation: transform 8s ease-in-out infinite both alternate, move_two 20s ease-in-out infinite both;
+}
+
+.blob.six {
+  background: #0EAFFF;
+  height: 70px;
+  width: 100px;
+  left: 160px;
+  top: 400px;
+  transform: rotate(-180deg);
+  animation: transform 5s ease-in-out infinite both alternate, move_two 5s ease-in-out infinite both;
+}
+
+.blob.four {
+  background: #4EAEFF;
+  height: 100px;
+  width: 80px;
+  left: 350px;
+  top: 200px;
+  transform: rotate(-180deg);
+  animation: transform 17s ease-in-out infinite both alternate, move_two 13s ease-in-out infinite both;
+}
+
+.blob.five {
+  background: #0085FF;
+  height: 100px;
+  width: 80px;
+  left: 480px;
+  top: 100px;
+  transform: rotate(-180deg);
+  animation: transform 12s ease-in-out infinite both alternate, move_two 18s ease-in-out infinite both;
+}
+
+.blob.two {
+  background: #4EAEFF;
+  height: 150px;
+  width: 150px;
+  left: 600px;
+  top: 450px;
+  transform: rotate(-180deg);
+  animation: transform 10s ease-in-out infinite both alternate, move_two 10s ease-in-out infinite both;
+}
+
+.blob.three {
+  background: #0EAFFF;
+  height: 150px;
+  width: 150px;
+  left: 800px;
+  top: 10px;
+  transform: rotate(-180deg);
+  animation: transform 7s ease-in-out infinite both alternate, move_two 23s ease-in-out infinite both;
+}
+
+@keyframes transform {
+
+  0%,
+  100% {
+    border-radius: 33% 67% 70% 30% / 30% 40% 70% 70%;
+  }
+
+  20% {
+    border-radius: 37% 63% 51% 49% / 37% 35% 35% 63%;
+  }
+
+  40% {
+    border-radius: 36% 64% 64% 36% / 64% 48% 52% 26%;
+  }
+
+  60% {
+    border-radius: 37% 63% 51% 49% / 30% 30% 70% 73%;
+  }
+
+  80% {
+    border-radius: 40% 60% 42% 58% / 51% 51% 49% 59%;
+  }
+}
+
+@keyframes move_one {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: translate(50%, 20%) rotateY(10deg) scale(1);
+  }
+}
+
+@keyframes move_two {
+
+  0%,
+  500% {
+    transform: none;
+  }
+
+  50% {
+    transform: translate(50%, 20%) rotate(-200deg) scale(1.3);
+  }
+}
+
+body:not(.dark)>svg * {
   opacity: 100%;
   fill: hsl(var(--accentHi));
 }
 
-body:not(.dark) > svg g *,
-body:not(.dark) > svg rect:nth-child(1),
-body:not(.dark) > svg rect:nth-child(2) {
+body:not(.dark)>svg g *,
+body:not(.dark)>svg rect:nth-child(1),
+body:not(.dark)>svg rect:nth-child(2) {
   fill: hsl(var(--foreground));
 }
 
-body > svg {
+body>svg {
   z-index: -1;
   opacity: 50%;
   position: fixed;
 }
 
-body > svg:nth-child(1) {
+body>svg:nth-child(1) {
   top: 0;
   right: 0;
 }
 
-body > svg:nth-child(2) {
+body>svg:nth-child(2) {
   left: 0;
   bottom: 0;
 }
-
-.blur {
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: 12rem;
-  height: 12rem;
-  position: fixed;
-  filter: blur(100px);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: hsl(var(--foreground));
-  /* background-color: hsl(155, 97%, 13%); */
-}
-
-/* .dark .blur {
-  background-color: hsl(155, 100%, 65%);
-} */
 
 #root {
   width: 90%;
