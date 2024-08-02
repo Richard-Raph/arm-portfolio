@@ -131,7 +131,7 @@ div .dot {
 }
 
 .circle div:nth-child(2) {
-  top: 60%;
+  top: 70%;
   left: 80%;
   animation: animate 10s linear infinite;
 }
@@ -214,9 +214,15 @@ div .dot {
   animation: animate 9s linear infinite;
 }
 
+.circle div:nth-child(15) {
+  top: 90%;
+  left: 95%;
+  animation: animate 10s linear infinite;
+}
+
 @keyframes animate {
   0% {
-    transform: scale(0) translateY(0) rotate(70deg);
+    transform: scale(0) translateY(0) rotate(80deg);
   }
 
   100% {
