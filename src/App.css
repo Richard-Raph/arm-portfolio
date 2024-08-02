@@ -209,12 +209,12 @@ div .dot {
 }
 
 .circle div:nth-child(15) {
-  top: 90%;
-  left: 80%;
+  top: 50%;
+  left: 90%;
   animation: animate 9s linear infinite;
 }
 
-.circle div:nth-child(15) {
+.circle div:nth-child(16) {
   top: 90%;
   left: 95%;
   animation: animate 10s linear infinite;
