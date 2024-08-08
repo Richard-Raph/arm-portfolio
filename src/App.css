@@ -168,7 +168,7 @@ div .dot {
 
 .circle div:nth-child(8) {
   top: 75%;
-  left: 60%;
+  left: 65%;
   animation: animate 10s linear infinite;
 }
 
