@@ -1,36 +1,37 @@
 import './DockBar.css';
-import { useState } from 'react';
-import { RxMoon } from 'react-icons/rx';
 import { NavLink, Link } from 'react-router-dom';
-import { LuHome, LuCode2, LuInfo, LuSun } from 'react-icons/lu';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 const DockBar = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark', !darkMode);
-  };
 
   return (
     <nav className='dock-bar'>
       <div className='dock-background'></div>
+      <a>Logo</a>
+      
       <div className='dock-links'>
-        <NavLink to='/' data-title='Home' exact='true' activeclassname='active'>
-          <LuHome />
+        <NavLink to='/' exact='true' activeclassname='active'>
+          <span>Home</span>
         </NavLink>
 
-        <NavLink to='/about' data-title='About' activeclassname='active'>
-          <LuInfo />
+        <NavLink to='/about' activeclassname='active'>
+          <span>About</span>
         </NavLink>
 
-        <NavLink to='/project' data-title='Projects' activeclassname='active'>
-          <LuCode2 />
+        <NavLink to='/project' activeclassname='active'>
+          <span>Projects</span>
         </NavLink>
 
-        <i className='dock-divider'></i>
+        <NavLink to='/skills' activeclassname='active'>
+          <span>Skills</span>
+        </NavLink>
 
+        <NavLink to='/contact' activeclassname='active'>
+          <span>Contact</span>
+        </NavLink>
+      </div>
+
+      <div className='dock-links'>
         <Link to='https://github.com/Richard-Raph' target='_blank' rel='noopener noreferrer' data-title='Github'>
           <FaGithub />
         </Link>
@@ -46,12 +47,6 @@ const DockBar = () => {
         <Link to='https://www.youtube.com/@rich_tech123' target='_blank' rel='noopener noreferrer' data-title='Youtube'>
           <FaYoutube />
         </Link>
-
-        <i className='dock-divider'></i>
-
-        <span onClick={toggleDarkMode} className='pointer'>
-          {darkMode ? <RxMoon /> : <LuSun />}
-        </span>
       </div>
     </nav>
   );

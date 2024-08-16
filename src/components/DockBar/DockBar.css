@@ -1,118 +1,134 @@
 .dock-bar {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99;
-    height: 100%;
-    position: fixed;
-    max-height: 3.5rem;
-    margin: 0 auto 1rem;
-    pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  z-index: 99;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  max-height: 3.5rem;
+  align-items: center;
+  margin: 1rem auto 0;
+  pointer-events: none;
+  justify-content: space-between;
 }
 
 .dock-background {
-    bottom: 0;
-    width: 100%;
-    height: 4rem;
-    position: fixed;
-    backdrop-filter: blur(10px);
-    background: var(--background);
-    mask-image: linear-gradient(to top, black, transparent);
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  background: var(--secondary);
+  mask-image: linear-gradient(to top, black, transparent);
 }
 
 .dock-links {
-    z-index: 9;
-    height: 100%;
-    display: flex;
-    margin: 0 auto;
-    min-height: 100%;
-    width: max-content;
-    position: relative;
-    align-items: center;
-    pointer-events: auto;
-    border-radius: 9999px;
-    padding: 0.5rem 0.25rem;
-    background: var(--background);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05);
+  z-index: 9;
+  height: 100%;
+  display: flex;
+  min-height: 100%;
+  width: max-content;
+  position: relative;
+  align-items: center;
+  pointer-events: auto;
+  border-radius: 9999px;
+  padding: 0.5rem 0.25rem;
+  background: hsla(var(--accentSec));
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px 0px;
 }
 
-.dark .dock-links {
-    box-shadow: inset 0 -20px 80px -20px #ffffff1f;
+.dock-links:last-child {
+  box-shadow: none;
+  background: transparent;
 }
 
-.dock-links a,
-.dock-links span {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    padding: 0.3rem;
-    font-weight: 500;
-    position: relative;
-    font-size: 0.875rem;
-    white-space: nowrap;
-    align-items: center;
-    aspect-ratio: 1 / 1;
-    border-radius: 9999px;
-    justify-content: center;
-    color: var(--foreground);
-    transition: all .15s cubic-bezier(.4,0,.2,1);
+.dock-links a {
+  width: auto;
+  display: flex;
+  padding: 0.3rem 1.5rem;
+  position: relative;
+  align-items: center;
+  color: var(--primary);
+  border-radius: 9999px;
+  justify-content: center;
+  transition: all .15s cubic-bezier(.4, 0, .2, 1);
 }
-    
+
+.dock-links a span {
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.dock-links a:has(svg) {
+  width: 3rem;
+  height: 3rem;
+}
+
 .dock-links a[data-title]:hover::after {
-    top: -2.3rem;
-    margin: 0 auto;
-    width: max-content;
-    position: absolute;
-    font-size: .875rem;
-    line-height: 1.25rem;
-    padding: .25rem .75rem;
-    content: attr(data-title);
-    border-radius: var(--radius);
-    color: hsl(var(--background));
-    background: hsl(var(--foreground));
+  margin: 0 auto;
+  bottom: -2.3rem;
+  width: max-content;
+  position: absolute;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding: .25rem .75rem;
+  content: attr(data-title);
+  color: hsl(var(--secondary));
+  border-radius: var(--radius);
+  background: hsl(var(--primary));
 }
 
-.dock-links a.active[data-title]:hover::after {
-    display: none;
+.dock-links a:has(svg):hover {
+  animation: 1s rubberBand linear;
 }
 
-.dock-links a:hover,
-.dock-links a.active,
-.dock-links span:hover {
-    width: 3rem;
-    height: 3rem;
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--accent));
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
-.dock-links a svg,
-.dock-links span svg {
-    width: 1rem;
-    height: 1rem;
-    cursor: inherit;
-    vertical-align: middle;
+.dock-links a:hover {
+  color: hsl(var(--primary));
+  background-color: hsl(var(--accent));
 }
 
-.dock-links span svg {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-
-.dock-divider {
-    width: 1px;
-    height: 100%;
-    margin: 0.3rem;
-    flex-shrink: 0;
-    background: hsl(var(--border));
+.dock-links a svg {
+  width: 1rem;
+  height: 1rem;
+  cursor: inherit;
+  vertical-align: middle;
 }
 
 @media (min-width: 768px) {
-    .dock-links a,
-    .dock-links span {
-        padding: 0.6rem;
-    }
-
-    .dock-divider {
-        margin: 0.6rem;
-    }
+  .dock-links a {
+    padding: 0.6rem;
+  }
 }
