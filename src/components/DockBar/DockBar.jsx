@@ -40,7 +40,7 @@ const DockBar = () => {
           <FaXTwitter />
         </Link>
 
-        <Link to='https://www.linkedin.com/in/rich-tech123/?lipi=urn%3Ali%3Apage%3Ad_flagship3_nurture_all%3BWPPhxjYEQXyxbtpJlgJYLg%3D%3D' target='_blank' rel='noopener noreferrer' data-title='LinkedIn'>
+        <Link to='https://www.linkedin.com/in/rich-tech123' target='_blank' rel='noopener noreferrer' data-title='LinkedIn'>
           <FaLinkedin />
         </Link>
 

@@ -60,7 +60,7 @@
   --primary: 0 0% 95%;
   --border: 0 0% 14.9%;
   --accent: 0 0% 14.9%;
-  --secondary: 240 21.6% 8.1%;
+  --secondary: 0 0% 3.5%;
   --accentSec: 0 0% 94.9% 0.05;
   --accentPri: 155, 100%, 100%, 25%;
 }
@@ -80,13 +80,102 @@ button,
   cursor: url('./assets/cursors/pointer.png'), pointer;
 }
 
+.back {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  min-height: 100dvh;
+  background: hsl(var(--secondary));
+}
+
+.cont {
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  position: fixed;
+  overflow: hidden;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid hsl(var(--primary));
+}
+
+.cont::after {
+  content: '';
+  top: 23px;
+  left: 23px;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 50%;
+  background: hsl(var(--accent));
+  border: 1px solid hsl(var(--primary));
+  background-image: linear-gradient(transparent calc(50% - 1px), hsl(var(--primary)) calc(50% - 1px), hsl(var(--primary)) calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(90deg, transparent calc(50% - 1px), hsl(var(--primary)) calc(50% - 1px),  calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+.spinner {
+  top: 50%;
+  left: 50%;
+  width: 125px;
+  height: 100px;
+  position: absolute;
+  transform-origin: 0 0;
+  animation: spin 1s infinite linear;
+  background-image: linear-gradient(hsl(var(--accentPri)), transparent);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.number {
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.number::after {
+  top: 0;
+  left: 0;
+  content: '';
+  width: 250px;
+  height: 250px;
+  font-size: 150px;
+  position: absolute;
+  line-height: 250px;
+  animation: count 10s infinite steps(10, start);
+}
+
+@keyframes count {
+  0%, 100% { content: '0'; }
+  10% { content: '9'; }
+  20% { content: '8'; }
+  30% { content: '7'; }
+  40% { content: '6'; }
+  50% { content: '5'; }
+  60% { content: '4'; }
+  70% { content: '3'; }
+  80% { content: '2'; }
+  90% { content: '1'; }
+}
+
 body {
   width: 100%;
   position: relative;
   min-height: 100dvh;
   overflow-x: hidden;
   transition: all .3s ease;
-  background: hsl(var(--secondary));
+  background-size: 20px 20px;
+  background-color: hsl(var(--secondary));
+  background-image: radial-gradient(#ffffff33 1px, hsl(var(--secondary)) 1px);
 }
 
 body:not(.dark)>svg * {
@@ -245,7 +334,7 @@ div .dot {
   min-height: 900dvh;
   color: hsl(var(--primary));
   background: hsla(var(--accentSec));
-  box-shadow: 0px -3px 10px 0px hsla(var(--accentPri)) inset;
+  /* box-shadow: 0px -3px 10px 0px hsla(var(--accentPri)) inset; */
 }
 
 /* transition: box-shadow .4s cubic-bezier(.215, .61, .355, 1);
@@ -253,54 +342,54 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
   box-shadow: inset -4px -4px 10px 0 var(--white), inset 4px 4px 10px 0 var(--shadow), 0 0 0 0 var(--white), 0 0 0 0 var(--shadow); */
 
 .button-57 {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #18181a;
-  color: #18181a;
-  display: inline-block;
   font-size: 15px;
+  color: #18181a;
+  overflow: hidden;
   line-height: 15px;
-  padding: 18px 18px 17px;
-  text-decoration: none;
-  background: #fff;
   user-select: none;
+  position: relative;
+  background: #fff;
+  display: inline-block;
+  text-decoration: none;
+  padding: 18px 18px 17px;
   -webkit-user-select: none;
   touch-action: manipulation;
+  border: 1px solid #18181a;
 }
 
 .button-57 span:first-child {
+  z-index: 10;
   position: relative;
   transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 10;
 }
 
 .button-57 span:last-child {
-  color: white;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 100;
-  opacity: 0;
   top: 50%;
   left: 50%;
-  transform: translateY(225%) translateX(-50%);
+  bottom: 0;
+  opacity: 0;
   height: 14px;
+  z-index: 100;
+  color: white;
+  display: block;
   line-height: 13px;
+  position: absolute;
+  transform: translateY(225%) translateX(-50%);
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
 .button-57:after {
-  content: "";
-  position: absolute;
-  bottom: -50%;
   left: 0;
   width: 100%;
+  z-index: 50;
+  content: '';
+  bottom: -50%;
   height: 100%;
+  position: absolute;
   background-color: black;
   transform-origin: bottom center;
-  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
   transform: skewY(9.3deg) scaleY(0);
-  z-index: 50;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
 .button-57:hover:after {
@@ -309,8 +398,8 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
 }
 
 .button-57:hover span:last-child {
-  transform: translateX(-50%) translateY(-100%);
   opacity: 1;
+  transform: translateX(-50%) translateY(-100%);
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 @import url(https://fonts.googleapis.com/css?family=Roboto);
@@ -318,33 +407,35 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
 
 
 /* .paper {
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    min-width: 400px;
-    height: 480px;
-    margin: 0 auto;
-    background: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.3);
-    overflow: hidden;
+  width: 90%;
+  height: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+  min-width: 400px;
+  max-width: 800px;
+  position: relative;
+  border-radius: 10px;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
 }
 .paper:before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 0;
-    width: 60px;
-    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
-    background-size: 30px 30px;
-    border-right: 3px solid #D44147;
-    box-sizing: border-box;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  background-size: 30px 30px;
+  border-right: 3px solid #D44147;
+  background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
 }
 
 .paper-content {
     position: absolute;
+    background-size: 30px 30px;
     top: 30px; right: 0; bottom: 30px; left: 60px;
     background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
-    background-size: 30px 30px;
 }
 
 .paper-content textarea {
@@ -376,17 +467,17 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
   box-shadow: 0px 0px 5px 0px #888;
 }
 .paper::before {
-  content: '';
-  position: absolute;
   left: 45px;
-  height: 100%;
   width: 2px;
+  content: '';
+  height: 100%;
+  position: absolute;
   background: rgba(255,0,0,0.4);
 }
 .lines {
+  width: 100%;
   margin-top: 40px;
   height: calc(100% - 40px);
-  width: 100%;
   background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
 }
 .text {
@@ -401,12 +492,12 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
   outline: none;
 }
 .holes {
-  position: absolute;
   left: 10px;
-  height: 25px;
   width: 25px;
-  background: lightgoldenrodyellow;
+  height: 25px;
+  position: absolute;
   border-radius: 50%;
+  background: lightgoldenrodyellow;
   box-shadow: inset 0px 0px 2px 0px #888;
 }
 .hole-top {
@@ -422,10 +513,10 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
 
 /* .notepad {
   width: 80%;
-  max-width: 600px;
-  box-shadow: 10px 10px 40px rgba(black, .15);
-  border-radius: 0 0 10px 10px;
   overflow: hidden;
+  max-width: 600px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 10px 10px 40px rgba(black, .15);
 }
 
 .top {
@@ -463,9 +554,9 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
     30%,
     var(--paper-color)
   );
-  box-shadow: 3px 3px 2px var(--paper-shadow);
   transform: rotate(10deg);
   transform-origin: top left;
+  box-shadow: 3px 3px 2px var(--paper-shadow);
 }
 
 .paper p {
@@ -473,8 +564,8 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
 }
 
 .pin {
-  --pin-color: #d02627;
   --pin-dark: #9e0608;
+  --pin-color: #d02627;
   --pin-light: #fc7e7d;
 
   position: absolute;
@@ -484,25 +575,25 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
 }
 
 .shadow {
-  position: absolute;
   top: 18px;
   left: -8px;
   width: 35px;
   height: 35px;
+  position: absolute;
   border-radius: 50%;
   background: radial-gradient(#c9bf8d, 20%, rgba(201, 191, 141, 0));
 }
 
 .metal {
-  position: absolute;
+  top: 15px;
   width: 5px;
   height: 20px;
-  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
-  border-radius: 0 0 30% 30%;
+  position: absolute;
   transform: rotate(50deg);
+  border-radius: 0 0 30% 30%;
   transform-origin: bottom left;
-  top: 15px;
   border-bottom: 1px solid #808080;
+  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
 }
 
 .bottom-circle {
@@ -531,8 +622,6 @@ box-shadow: inset 0 0 0 0 var(--white), inset 0 0 0 0 var(--shadow), -4px -4px 1
   height: 30px;
   transform: rotate(55deg);
   transform-origin: 100% 100%;
-  border-radius: 0 0 40% 40%;
-  background: linear-gradient(
     to right,
     var(--pin-dark),
     30%,
