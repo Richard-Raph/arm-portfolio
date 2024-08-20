@@ -8,9 +8,9 @@
   display: flex;
   position: fixed;
   max-height: 3.5rem;
-  align-items: center;
   margin: .5rem auto 0;
   pointer-events: none;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -25,10 +25,14 @@
   mask-image: linear-gradient(to top, black, transparent);
 }
 
+.dock-logo {
+  align-self: center;
+}
+
 .dock-links {
   z-index: 9;
   height: 100%;
-  display: flex;
+  display: none;
   min-height: 100%;
   width: max-content;
   position: relative;
@@ -41,8 +45,10 @@
 }
 
 .dock-links:last-child {
-  box-shadow: none;
-  background: transparent;
+  display: flex;
+  height: max-content;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
 }
 
 .dock-links a {
@@ -70,6 +76,7 @@
 }
 
 .dock-links a[data-title]:hover::after {
+  display: none;
   margin: 0 auto;
   bottom: -2.3rem;
   width: max-content;
@@ -129,8 +136,23 @@
   vertical-align: middle;
 }
 
-/* @media (min-width: 768px) {
-  .dock-links a {
-    padding: 0.6rem;
+@media (min-width: 768px) {
+  .dock-bar {
+    align-items: center;
   }
-} */
+
+  .dock-links:last-child {
+    flex-direction: row;
+  }
+
+  .dock-links:last-child {
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: blur(0);
+  }
+
+  .dock-links,
+  .dock-links a[data-title]:hover::after {
+    display: flex;
+  }
+}
