@@ -7,13 +7,11 @@ const DockBar = () => {
   return (
     <nav className='dock-bar'>
       <div className='dock-background'></div>
-      <a className='dock-logo'>Logo</a>
+      <NavLink to='/' exact='true' activeclassname='active' className='dock-logo'>
+        <span>Logo</span>
+      </NavLink>
       
       <div className='dock-links'>
-        <NavLink to='/' exact='true' activeclassname='active'>
-          <span>Home</span>
-        </NavLink>
-
         <NavLink to='/about' activeclassname='active'>
           <span>About</span>
         </NavLink>
