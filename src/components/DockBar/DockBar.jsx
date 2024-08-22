@@ -20,8 +20,8 @@ const DockBar = () => {
           <span>Projects</span>
         </NavLink>
 
-        <NavLink to='/skills' activeclassname='active'>
-          <span>Skills</span>
+        <NavLink to='/blog' activeclassname='active'>
+          <span>Blog</span>
         </NavLink>
 
         <NavLink to='/contact' activeclassname='active'>

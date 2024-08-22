@@ -341,7 +341,7 @@ main {
   width: 100%;
   z-index: -1;
   height: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
 }
 
 /* transition: box-shadow .4s cubic-bezier(.215, .61, .355, 1);

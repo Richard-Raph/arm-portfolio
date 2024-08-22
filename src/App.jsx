@@ -1,8 +1,10 @@
 import './App.css';
 import Top from './layouts/Top';
 import Home from './routes/Home';
+import Blog from './routes/Blog';
 import About from './routes/About';
 import Layout from './layouts/Layout';
+import Contact from './routes/Contact';
 import Project from './routes/Project';
 import Preloader from './layouts/Preloader';
 import { useState, useEffect } from 'react';
@@ -27,8 +29,10 @@ function App() {
             <Top />
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/blog' element={<Blog />} />
               <Route path='/about' element={<About />} />
               <Route path='/project' element={<Project />} />
+              <Route path='/contact' element={<Contact />} />
             </Routes>
           </Layout>
         </Router>
