@@ -326,6 +326,7 @@ div .dot {
   }
 }
 
+main,
 #root {
   width: 90%;
   z-index: 9;
@@ -334,7 +335,13 @@ div .dot {
   min-height: 900dvh;
   color: hsl(var(--primary));
   background: hsla(var(--accentSec));
-  /* box-shadow: 0px -3px 10px 0px hsla(var(--accentPri)) inset; */
+}
+
+main {
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  backdrop-filter: blur(5px);
 }
 
 /* transition: box-shadow .4s cubic-bezier(.215, .61, .355, 1);

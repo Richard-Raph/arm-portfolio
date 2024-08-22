@@ -5,6 +5,7 @@ export default function Home() {
 
   return (
     <>
+    <main></main>
     {/* <div className="paper">
     <div className="paper-content">
         <textarea className="text" autoFocus></textarea>
