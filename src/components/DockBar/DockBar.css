@@ -32,12 +32,12 @@
   z-index: 9;
   height: 48px;
   display: none;
+  padding: 0 0.4rem;
   width: max-content;
   position: relative;
   align-items: center;
   border-radius: 24px;
   pointer-events: auto;
-  padding: 0.5rem 0.4rem;
   backdrop-filter: blur(15px);
   justify-content: space-between;
   border: 1px solid hsla(var(--accentPri));
@@ -91,9 +91,26 @@
   background: hsl(var(--primary));
 }
 
-.dock-links a:hover {
+.dock-links:not(:last-child) a.active::before {
+  top: 0;
+  width: 24px;
+  height: 4px;
+  content: '';
+  margin: -8px 0 0;
+  position: absolute;
+  border-radius: 2px;
+  background-color: hsl(var(--primary));
+  box-shadow: 0 2px 25px 2px hsl(var(--primary));
+}
+
+.dock-links a:hover,
+.dock-links a.active {
   color: hsl(var(--primary));
   background-color: hsla(var(--accentPri));
+}
+
+.dock-links:not(:last-child) a:not(.active) {
+  opacity: .5;
 }
 
 .dock-links a svg {
