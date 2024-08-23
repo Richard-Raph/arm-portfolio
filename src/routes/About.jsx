@@ -4,8 +4,9 @@ export default function About() {
     useDocumentTitle('About ℹ Richard Raphael');
 
     return (
-        <section>
-
-        </section>
+        <>
+            <main></main>
+            <footer></footer>
+        </>
     );
 }
