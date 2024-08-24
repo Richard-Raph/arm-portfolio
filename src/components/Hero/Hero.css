@@ -2,9 +2,9 @@
     z-index: 1;
     overflow: hidden;
     position: relative;
-    padding-bottom: 5px;
+    padding: 150px 5px;
     backdrop-filter: blur(2px);
-    background-image: radial-gradient(circle closest-corner at 50% 0, hsla(var(--accentPri)), hsl(var(--secondary)));
+    background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, hsl(var(--secondary)));
 }
 
 .hero-container {
@@ -30,7 +30,6 @@
     overflow: hidden;
     border-radius: 24px;
     outline-offset: -1px;
-    backdrop-filter: none;
     outline: 1px solid hsla(var(--accentPri));
     box-shadow: inset 0 0 8px #0006, 0 0 60px #0003, 0 30px 120px #000c;
     background-image: radial-gradient(circle farthest-side at 50% 0, #f2f2f233, #0000);
@@ -38,8 +37,8 @@
 
 .window-main {
     overflow: hidden;
+    position: relative;
     border-radius: 16px;
-    backdrop-filter: blur(20px);
     border: 1px solid hsla(var(--accentPri));
     box-shadow: inset 0 0 10px #0000001a, 0 0 12px #0006;
 }
@@ -115,57 +114,51 @@
 
 .window-content {
     z-index: 5;
-    grid-column-gap: 32px;
-    grid-row-gap: 0px;
-    background-color: #101010b3;
-    flex-direction: column;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-columns: 1fr;
-    justify-content: space-around;
-    align-items: stretch;
-    padding: 80px 56px 192px;
-    display: grid;
+    display: flex;
     position: relative;
+    align-items: stretch;
+    grid-column-gap: 40px;
+    padding: 10vw 6vw 30vw;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #101010b3;
 }
 
 .hero-content {
     z-index: 1;
     display: flex;
     position: relative;
-    grid-row-gap: 64px;
+    grid-row-gap: 70px;
     flex-direction: column;
 }
 
-.text-hero {
-    font-size: 80px;
-    text-align: left;
+.hero-content h2 {
+    font-size: 3rem;
     font-weight: 500;
     line-height: 90%;
     letter-spacing: -2px;
+    align-self: flex-start;
     font-family: Neue Montreal, sans-serif;
     text-shadow: 0 5px 10px #0057ff26, 0 -5px 10px #ff5a001a, 0 -5px 25px hsla(var(--accentPri));
 }
 
-.hero-fade {
-    z-index: 5;
-    height: 200px;
-    display: flex;
-    inset: auto 0 0;
-    padding-top: 48px;
-    position: absolute;
-    align-items: center;
-    flex-direction: column;
-    background-image: linear-gradient(to bottom, hsla(var(--accentSec)), hsl(var(--secondary)) 60%);
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 100;
+    line-height: 140%;
+    align-self: flex-end;
+    font-family: Neue Montreal, sans-serif;
 }
 
-.hero-fade a svg {
-    width: 40px;
-    opacity: .5;
-    height: 50px;
-    display: block;
+.hero-content p a {
+    font-weight: 500;
     color: hsl(var(--primary));
-    animation: slideInDown 2s ease infinite;
+    text-shadow: 0 5px 10px #0057ff26, 0 -5px 10px #ff5a001a, 0 -5px 25px hsla(var(--accentPri));
+}
+
+.hero-content p a:hover {
+    font-weight: 500;
+    color: hsla(var(--accentPri));
 }
 
 .window-grain {
@@ -176,6 +169,27 @@
     mix-blend-mode: overlay;
     background-position: 0 0;
     background-image: url('../../assets/images/grain.webp');
+}
+
+.hero-fade {
+    z-index: 5;
+    height: 300px;
+    display: flex;
+    inset: auto 0 0;
+    padding-top: 60px;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 30%);
+}
+
+.hero-fade a svg {
+    width: 40px;
+    opacity: .5;
+    height: 50px;
+    display: block;
+    color: hsl(var(--primary));
+    animation: slideInDown 2s ease infinite;
 }
 
 @keyframes slideInDown {
@@ -190,4 +204,24 @@
     }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 991px) {
+    .hero {
+        padding: 90px 5px;
+    }
+
+    .window-content {
+        padding: 70px 50px 170px;
+    }
+
+    .hero-content h2 {
+        font-size: 4.5rem;
+    }
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+
+    .hero-fade {
+        height: 200px;
+        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 40%);
+    }
+}

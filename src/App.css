@@ -315,7 +315,6 @@ main {
   width: 100%;
   z-index: -1;
   height: 100%;
-  margin: 5rem 0 0;
 }
 
 /* transition: box-shadow .4s cubic-bezier(.215, .61, .355, 1);

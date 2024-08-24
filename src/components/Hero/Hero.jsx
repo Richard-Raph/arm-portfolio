@@ -24,19 +24,8 @@ const Hero = () => {
                         </div>
                         <div className='window-content'>
                             <div className='hero-content'>
-                                <div className='text-hero'>
-                                    I craft products, interactions &amp; 
-                                    <span className='text-hero-serif'>stories.</span>
-                                </div>
-                                <div className='hero-about-grid'>
-                                    <span className='hero-about-null'></span>
-                                    <div>
-                                        <div className='text-hero-about'>
-                                            Instructor at <Link to='htps://myteacher.ng'>Myteacher</Link>. Based in Port Harcourt.<br />
-                                            <span className='text-hero-about-formerly'>Formerly at Google and RBC.</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h2>I craft products, interactions &amp; <span>stories.</span></h2>
+                                <p>Developer at <Link to='https://myteacher.ng' target='_blank' rel='noreferrer'>Myteacher</Link>. <i>Based in Port Harcourt</i>.</p>
                             </div>
                             <span className='window-grain'></span>
                         </div>
