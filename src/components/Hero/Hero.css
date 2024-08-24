@@ -51,7 +51,10 @@
     filter: blur(12px);
     position: absolute;
     grid-column-gap: 24px;
+    will-change: transform;
     transform: rotate(15deg);
+    transform-style: preserve-3d;
+    animation: move 5s ease-in-out infinite;
 }
 
 .shine * {
@@ -201,6 +204,17 @@
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move {
+    from {
+        opacity: 0.15;
+        transform: translate3d(-25vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
+    }
+    to {
+        opacity: 0.15;
+        transform: translate3d(225vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
     }
 }
 
