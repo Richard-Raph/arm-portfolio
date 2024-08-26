@@ -19,7 +19,7 @@
   display: flex;
   inset: 0 0 auto;
   position: fixed;
-  background-image: linear-gradient(hsla(var(--accentSec)), hsl(var(--secondary)));
+  background-image: linear-gradient(#0006, #0000);
 }
 
 .dock-logo {
@@ -44,6 +44,10 @@
   background-color: hsla(var(--accentSec));
   box-shadow: 0 10px 25px hsla(var(--accentSec));
   transition: box-shadow 1s cubic-bezier(.23, 1, .32, 1), border .6s cubic-bezier(.165, .84, .44, 1);
+}
+
+.dock-links:not(:last-child):has(a.active) {
+  border-color: linear-gradient(to right, hsl(var(--secondary)) 10%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 90%);
 }
 
 .dock-links:last-child {
@@ -99,12 +103,14 @@
   margin: -8px 0 0;
   position: absolute;
   border-radius: 2px;
+  filter: brightness(100);
   background-color: hsl(var(--primary));
   box-shadow: 0 2px 25px 2px hsl(var(--primary));
 }
 
 .dock-links a:hover,
 .dock-links a.active {
+  filter: brightness(100);
   color: hsl(var(--primary));
   background-color: hsla(var(--accentPri));
 }

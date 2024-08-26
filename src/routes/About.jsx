@@ -1,3 +1,4 @@
+import Hero from '../components/Hero/AHero';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 export default function About() {
@@ -5,7 +6,9 @@ export default function About() {
 
     return (
         <>
-            <main></main>
+            <main>
+                <Hero />
+            </main>
             <footer></footer>
         </>
     );

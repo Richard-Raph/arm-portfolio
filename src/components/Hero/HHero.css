@@ -1,8 +1,12 @@
 .hero {
     z-index: 1;
+    width: 100%;
+    display: grid;
+    padding: 50px 0;
     overflow: hidden;
     position: relative;
-    padding: 150px 5px;
+    min-height: 100dvh;
+    place-items: center;
     backdrop-filter: blur(2px);
     background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, hsl(var(--secondary)));
 }
@@ -10,6 +14,7 @@
 .hero-container {
     z-index: 3;
     width: 100%;
+    height: 75%;
     position: relative;
 }
 
@@ -17,7 +22,7 @@
     height: 1px;
     display: block;
     margin-bottom: -1px;
-    background-image: linear-gradient(to right, #0000 10%, #fff 50%, #0000 90%);
+    background-image: linear-gradient(to right, hsl(var(--secondary)) 10%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 90%);
 }
 
 .glare.inner {
@@ -26,6 +31,8 @@
 }
 
 .window-outline {
+    width: 100%;
+    height: 100%;
     padding: 8px;
     overflow: hidden;
     border-radius: 24px;
@@ -36,6 +43,8 @@
 }
 
 .window-main {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     position: relative;
     border-radius: 16px;
@@ -44,7 +53,6 @@
 }
 
 .shine {
-    inset: 0%;
     height: 200%;
     opacity: .15;
     display: flex;
@@ -71,6 +79,7 @@
 
 .window-bar {
     z-index: 5;
+    width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -117,7 +126,10 @@
 
 .window-content {
     z-index: 5;
+    width: 100%;
+    height: 100%;
     display: flex;
+    overflow: hidden;
     position: relative;
     align-items: stretch;
     grid-column-gap: 40px;
@@ -128,45 +140,61 @@
 }
 
 .hero-content {
-    z-index: 1;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    grid-gap: 16px;
+    position: relative;
+    flex-direction: column;
+    color: hsl(var(--primary));
+}
+
+.hero-detail {
+    inset: 0;
     display: flex;
     position: relative;
-    grid-row-gap: 70px;
-    flex-direction: column;
 }
 
-.hero-content h2 {
-    font-size: 3rem;
-    font-weight: 500;
-    line-height: 90%;
-    letter-spacing: -2px;
-    align-self: flex-start;
-    font-family: Neue Montreal, sans-serif;
-    text-shadow: 0 5px 10px #0057ff26, 0 -5px 10px #ff5a001a, 0 -5px 25px hsla(var(--accentPri));
+.hero-detail .hero-text {
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    grid-column-gap: 20px;
+    will-change: transform;
+    mix-blend-mode: screen;
+    transform-style: preserve-3d;
+    animation: move-words 20s linear infinite;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    font-weight: 100;
-    line-height: 140%;
-    align-self: flex-end;
-    font-family: Neue Montreal, sans-serif;
+.hero-detail:last-child .hero-text {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:hsl(var(--primary));
 }
 
-.hero-content p a {
-    font-weight: 500;
-    color: hsl(var(--primary));
-    text-shadow: 0 5px 10px #0057ff26, 0 -5px 10px #ff5a001a, 0 -5px 25px hsla(var(--accentPri));
+.hero-detail .hero-text h1 {
+    font-size: 5rem;
+    line-height: 1.6em;
+    white-space: nowrap;
+    letter-spacing: -.025em;
 }
 
-.hero-content p a:hover {
-    font-weight: 500;
-    color: hsla(var(--accentPri));
+.hero-detail .hero-text span {
+    width: 12px;
+    height: 12px;
+    margin: 0 18px;
+    border-radius: 100%;
+    border: 2px solid hsl(var(--primary));
+    background-color: hsl(var(--secondary));
+}
+
+.hero-detail:first-child .hero-text span {
+    background-color: hsl(var(--primary));
 }
 
 .window-grain {
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     position: absolute;
     background-size: 200px;
     mix-blend-mode: overlay;
@@ -176,11 +204,11 @@
 
 .hero-fade {
     z-index: 5;
-    height: 300px;
+    height: 200px;
     display: flex;
     inset: auto 0 0;
-    padding-top: 60px;
     position: absolute;
+    padding-top: 100px;
     align-items: center;
     flex-direction: column;
     background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 30%);
@@ -212,30 +240,41 @@
         opacity: 0.15;
         transform: translate3d(-25vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
     }
+
     to {
         opacity: 0.15;
         transform: translate3d(225vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
     }
 }
 
+/* @keyframes move-words {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+    transform: translate3d(67.877%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+} */
+
 @media (min-width: 991px) {
     .hero {
-        padding: 90px 5px;
+        padding: 0;
     }
 
     .window-content {
-        padding: 70px 50px 170px;
+        padding: 80px 60px 200px;
     }
 
     .hero-content h2 {
         font-size: 4.5rem;
     }
+
     .hero-content p {
         font-size: 1.5rem;
     }
 
     .hero-fade {
-        height: 200px;
-        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 40%);
+        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 50%);
     }
 }

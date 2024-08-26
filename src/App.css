@@ -5,6 +5,7 @@
   text-decoration: none;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  transition: all .5s ease;
   cursor: url('./assets/cursors/arrow.png'), auto;
   font-family: "__Inter_aaf875", "__Inter_Fallback_aaf875", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -167,7 +168,6 @@ body {
   position: relative;
   min-height: 100dvh;
   overflow-x: hidden;
-  transition: all .3s ease;
   background-size: 20px 20px;
   background-color: hsl(var(--secondary));
   background-image: radial-gradient(#ffffff33 1px, hsl(var(--secondary)) 1px);
@@ -307,7 +307,7 @@ main,
   z-index: 9;
   margin: 0 auto;
   position: relative;
-  min-height: 900dvh;
+  min-height: 100dvh;
   color: hsl(var(--primary));
   background: hsla(var(--accentSec));
 }

@@ -1,4 +1,4 @@
-import Hero from '../components/Hero/Hero';
+import Hero from '../components/Hero/HHero';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 export default function Home() {
