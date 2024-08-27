@@ -1,4 +1,4 @@
-.hero {
+.Hhero {
     z-index: 1;
     width: 100%;
     display: grid;
@@ -11,7 +11,7 @@
     background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, hsl(var(--secondary)));
 }
 
-.hero-container {
+.Hhero-container {
     z-index: 3;
     width: 100%;
     height: 75%;
@@ -139,7 +139,7 @@
     background-color: #101010b3;
 }
 
-.hero-content {
+.Hhero-content {
     width: 100%;
     z-index: -1;
     display: flex;
@@ -149,46 +149,51 @@
     color: hsl(var(--primary));
 }
 
-.hero-detail {
+.Hhero-detail {
     inset: 0;
     display: flex;
+    overflow: hidden;
     position: relative;
+    animation: marquee 10s linear infinite;
 }
 
-.hero-detail .hero-text {
-    z-index: -1;
+.Hhero-detail:last-child {
+    animation: marquee 10s reverse linear infinite;
+}
+
+.Hhero-detail .Hhero-text {
     display: flex;
+    overflow: hidden;
+    white-space: nowrap;
     align-items: center;
     grid-column-gap: 20px;
     will-change: transform;
     mix-blend-mode: screen;
     transform-style: preserve-3d;
-    animation: move-words 20s linear infinite;
 }
 
-.hero-detail:last-child .hero-text {
+.Hhero-detail:last-child .Hhero-text {
     color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color:hsl(var(--primary));
 }
 
-.hero-detail .hero-text h1 {
-    font-size: 5rem;
+.Hhero-detail .Hhero-text h1 {
     line-height: 1.6em;
-    white-space: nowrap;
     letter-spacing: -.025em;
+    font-size: clamp(1.5rem, 7vw, 5rem);
 }
 
-.hero-detail .hero-text span {
+.Hhero-detail .Hhero-text span {
     width: 12px;
     height: 12px;
     margin: 0 18px;
     border-radius: 100%;
+    background-color: transparent;
     border: 2px solid hsl(var(--primary));
-    background-color: hsl(var(--secondary));
 }
 
-.hero-detail:first-child .hero-text span {
+.Hhero-detail:first-child .Hhero-text span {
     background-color: hsl(var(--primary));
 }
 
@@ -202,7 +207,7 @@
     background-image: url('../../assets/images/grain.webp');
 }
 
-.hero-fade {
+.Hhero-fade {
     z-index: 5;
     height: 200px;
     display: flex;
@@ -214,7 +219,7 @@
     background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 30%);
 }
 
-.hero-fade a svg {
+.Hhero-fade a svg {
     width: 40px;
     opacity: .5;
     height: 50px;
@@ -247,18 +252,17 @@
     }
 }
 
-/* @keyframes move-words {
+@keyframes marquee {
   0% {
-    left: 100%;
+    transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(5deg, 0deg);
   }
   100% {
-    left: -100%;
-    transform: translate3d(67.877%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translate3d(-50%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(-5deg, 0deg);
   }
-} */
+}
 
 @media (min-width: 991px) {
-    .hero {
+    .Hhero {
         padding: 0;
     }
 
@@ -266,15 +270,7 @@
         padding: 80px 60px 200px;
     }
 
-    .hero-content h2 {
-        font-size: 4.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.5rem;
-    }
-
-    .hero-fade {
+    .Hhero-fade {
         background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 50%);
     }
 }

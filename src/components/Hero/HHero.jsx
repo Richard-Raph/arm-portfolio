@@ -1,11 +1,10 @@
 import './HHero.css';
-import { Link } from 'react-router-dom';
 import { HiPlus, HiOutlineArrowDown } from 'react-icons/hi2';
 
 const HHero = () => {
     return (
-        <section className='hero'>
-            <div className='hero-container'>
+        <section className='Hhero'>
+            <div className='Hhero-container'>
                 <span className='glare outer'></span>
                 <div className='window-outline'>
                     <span className='glare inner'></span>
@@ -23,9 +22,9 @@ const HHero = () => {
                             <HiPlus />
                         </div>
                         <div className='window-content'>
-                            <div className='hero-content'>
-                                <div className='hero-detail'>
-                                    <div className='hero-text'>
+                            <div className='Hhero-content'>
+                                <div className='Hhero-detail'>
+                                    <div className='Hhero-text'>
                                         <h1>Web developer</h1>
                                         <span></span>
                                         <h1>Design evangelist</h1>
@@ -33,7 +32,7 @@ const HHero = () => {
                                         <h1>Host of Nodes of Design Podcast</h1>
                                         <span></span>
                                     </div>
-                                    <div className='hero-text'>
+                                    <div className='Hhero-text'>
                                         <h1>Web designer</h1>
                                         <span></span>
                                         <h1>Design evangelist</h1>
@@ -42,8 +41,8 @@ const HHero = () => {
                                         <span></span>
                                     </div>
                                 </div>
-                                <div className='hero-detail'>
-                                    <div className='hero-text'>
+                                <div className='Hhero-detail'>
+                                    <div className='Hhero-text'>
                                         <h1>Based in Nigeria</h1>
                                         <span></span>
                                         <h1>Based in Nigeria</h1>
@@ -53,7 +52,7 @@ const HHero = () => {
                                         <h1>Based in Nigeria</h1>
                                         <span></span>
                                     </div>
-                                    <div className='hero-text'>
+                                    <div className='Hhero-text'>
                                         <h1>Based in Nigeria</h1>
                                         <span></span>
                                         <h1>Based in Nigeria</h1>
@@ -70,8 +69,8 @@ const HHero = () => {
                     </div>
                 </div>
             </div>
-            <div className='hero-fade'>
-                <Link to='/#about'><HiOutlineArrowDown /></Link>
+            <div className='Hhero-fade'>
+                <a href='#about'><HiOutlineArrowDown /></a>
             </div>
         </section>
     );

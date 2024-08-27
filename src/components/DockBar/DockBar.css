@@ -110,7 +110,6 @@
 
 .dock-links a:hover,
 .dock-links a.active {
-  filter: brightness(100);
   color: hsl(var(--primary));
   background-color: hsla(var(--accentPri));
 }
