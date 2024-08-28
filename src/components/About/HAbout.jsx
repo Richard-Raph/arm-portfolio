@@ -2,8 +2,15 @@ import './HAbout.css';
 
 const HAbout = () => {
     return (
-        <section className='habout' id='about'>
-
+        <section className='habout' data-aos='fade-up' id='about'>
+            <div className='paper'>
+                <div className='pin'>
+                    <span className='metal'></span>
+                    <span className='shadow'></span>
+                    <span className='bottom-circle'></span>
+                </div>
+                <h2>About Me</h2>
+            </div>
         </section>
     );
 }
@@ -27,13 +34,4 @@ export default HAbout;
 {/* <div className='notepad'>
   <div className='top'></div>
   <div className='paper' contentEditable='true'></div>
-</div> */}
-
-{/* <div className='paper'>
-  <div className='pin'>
-    <div className='shadow'></div>
-    <div className='metal'></div>
-    <div className='bottom-circle'></div>
-  </div>
-  <p>Contact me</p>
 </div> */}

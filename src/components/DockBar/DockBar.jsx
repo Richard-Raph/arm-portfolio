@@ -1,32 +1,43 @@
 import './DockBar.css';
-import { NavLink, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import Logo from '../../assets/images/logo-fff.webp';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 const DockBar = () => {
+  const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const isHome = location.pathname === '/';
+
+  const handleLinkClick = (index) => {
+    setActiveIndex(index);
+  };
 
   return (
     <nav className='dock-bar'>
       <div className='dock-background'></div>
-      <NavLink to='/' exact='true' activeclassname='active' className='dock-logo' title='Home'>
-        <span>Logo</span>
+      <NavLink to='/' exact='true' className='dock-logo' title='Home'>
+        <img src={Logo} alt='Logo' />
       </NavLink>
-      
+
       <div className='dock-links'>
-        <NavLink to='/about' activeclassname='active'>
-          <span>About</span>
-        </NavLink>
-
-        <NavLink to='/project' activeclassname='active'>
-          <span>Projects</span>
-        </NavLink>
-
-        <NavLink to='/blog' activeclassname='active'>
-          <span>Blog</span>
-        </NavLink>
-
-        <NavLink to='/contact' activeclassname='active'>
-          <span>Contact</span>
-        </NavLink>
+        {[
+          { to: '/about', text: 'About', title: 'About Me' },
+          { to: '/project', text: 'Projects', title: 'My Works' },
+          { to: '/blog', text: 'Blog', title: 'My Blogs' },
+          { to: '/contact', text: 'Contact', title: 'Contact Me' }
+        ].map((link, index) => (
+          <NavLink
+            to={link.to}
+            key={link.to}
+            data-title={link.title}
+            onClick={() => handleLinkClick(index)}
+            className={`${isHome ? 'link' : index < activeIndex ? 'right' : index > activeIndex ? 'left' : ''}`}
+          >
+            <span>{link.text}</span>
+          </NavLink>
+        ))}
       </div>
 
       <div className='dock-links'>

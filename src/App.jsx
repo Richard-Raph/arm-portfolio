@@ -1,8 +1,11 @@
 import './App.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Top from './layouts/Top';
 import Home from './routes/Home';
 import Blog from './routes/Blog';
 import About from './routes/About';
+import Grain from './layouts/Grain';
 import Layout from './layouts/Layout';
 import Contact from './routes/Contact';
 import Project from './routes/Project';
@@ -21,12 +24,18 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, [])
+
   return (
     <>
       {loading ? <Preloader /> : 
         <Router>
           <Layout>
             <Top />
+            <Grain />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/blog' element={<Blog />} />

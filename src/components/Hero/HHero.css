@@ -14,7 +14,8 @@
 .Hhero-container {
     z-index: 3;
     width: 100%;
-    height: 75%;
+    height: 73%;
+    overflow: hidden;
     position: relative;
 }
 
@@ -34,7 +35,6 @@
     width: 100%;
     height: 100%;
     padding: 8px;
-    overflow: hidden;
     border-radius: 24px;
     outline-offset: -1px;
     outline: 1px solid hsla(var(--accentPri));
@@ -45,8 +45,8 @@
 .window-main {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
     border-radius: 16px;
     border: 1px solid hsla(var(--accentPri));
     box-shadow: inset 0 0 10px #0000001a, 0 0 12px #0006;
@@ -54,11 +54,10 @@
 
 .shine {
     height: 200%;
-    opacity: .15;
     display: flex;
-    filter: blur(12px);
+    column-gap: 24px;
+    filter: blur(10px);
     position: absolute;
-    grid-column-gap: 24px;
     will-change: transform;
     transform: rotate(15deg);
     transform-style: preserve-3d;
@@ -93,14 +92,14 @@
 
 .window-bar .window-dots {
     display: flex;
-    grid-column-gap: 10px;
+    column-gap: 10px;
 }
 
 .window-dots .dot {
     width: 12px;
     height: 12px;
     border-radius: 100px;
-    border: 1px solid hsla(var(--accentSec));
+    border: 1px solid hsl(var(--accent));
 }
 
 .window-dots .dot.red {
@@ -129,31 +128,33 @@
     width: 100%;
     height: 100%;
     display: flex;
-    overflow: hidden;
+    column-gap: 40px;
     position: relative;
-    align-items: stretch;
-    grid-column-gap: 40px;
-    padding: 10vw 6vw 30vw;
+    align-items: center;
     flex-direction: column;
     justify-content: space-around;
     background-color: #101010b3;
 }
 
 .Hhero-content {
-    width: 100%;
+    gap: 16px;
     z-index: -1;
+    width: 100%;
     display: flex;
-    grid-gap: 16px;
+    overflow: hidden;
     position: relative;
     flex-direction: column;
     color: hsl(var(--primary));
+    /* transform: translate3d(0px, 0px, 0px) rotate(-6deg); */
 }
 
 .Hhero-detail {
     inset: 0;
+    width: 100%;
     display: flex;
-    overflow: hidden;
     position: relative;
+    will-change: transform;
+    transform-style: preserve-3d;
     animation: marquee 10s linear infinite;
 }
 
@@ -163,13 +164,9 @@
 
 .Hhero-detail .Hhero-text {
     display: flex;
-    overflow: hidden;
+    column-gap: 20px;
     white-space: nowrap;
     align-items: center;
-    grid-column-gap: 20px;
-    will-change: transform;
-    mix-blend-mode: screen;
-    transform-style: preserve-3d;
 }
 
 .Hhero-detail:last-child .Hhero-text {
@@ -195,16 +192,6 @@
 
 .Hhero-detail:first-child .Hhero-text span {
     background-color: hsl(var(--primary));
-}
-
-.window-grain {
-    inset: 0;
-    z-index: 1;
-    position: absolute;
-    background-size: 200px;
-    mix-blend-mode: overlay;
-    background-position: 0 0;
-    background-image: url('../../assets/images/grain.webp');
 }
 
 .Hhero-fade {
@@ -257,7 +244,7 @@
     transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(5deg, 0deg);
   }
   100% {
-    transform: translate3d(-50%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(-5deg, 0deg);
+    transform: translate3d(-200%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(5deg, 0deg);
   }
 }
 
@@ -266,11 +253,7 @@
         padding: 0;
     }
 
-    .window-content {
-        padding: 80px 60px 200px;
-    }
-
     .Hhero-fade {
-        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 50%);
+        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 40%);
     }
 }

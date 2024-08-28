@@ -28,6 +28,10 @@
   pointer-events: auto;
 }
 
+.dock-logo img {
+  width: 50px;
+}
+
 .dock-links {
   z-index: 9;
   height: 48px;
@@ -40,14 +44,15 @@
   pointer-events: auto;
   backdrop-filter: blur(15px);
   justify-content: space-between;
-  border: 1px solid hsla(var(--accentPri));
   background-color: hsla(var(--accentSec));
-  box-shadow: 0 10px 25px hsla(var(--accentSec));
+  border: 1px solid hsla(var(--accentPri));
+  box-shadow: 0 5px 15px hsl(var(--accent));
   transition: box-shadow 1s cubic-bezier(.23, 1, .32, 1), border .6s cubic-bezier(.165, .84, .44, 1);
 }
 
 .dock-links:not(:last-child):has(a.active) {
-  border-color: linear-gradient(to right, hsl(var(--secondary)) 10%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 90%);
+  background-color: transparent;
+  border-color: hsl(var(--primary));
 }
 
 .dock-links:last-child {
@@ -95,6 +100,16 @@
   background: hsl(var(--primary));
 }
 
+.dock-links:not(:last-child) a[data-title].left::after {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, transparent, hsl(var(--primary)));
+}
+
+.dock-links:not(:last-child) a[data-title].right::after {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, hsl(var(--primary)), transparent);
+}
+
 .dock-links:not(:last-child) a.active::before {
   top: 0;
   width: 24px;
@@ -105,17 +120,28 @@
   border-radius: 2px;
   filter: brightness(100);
   background-color: hsl(var(--primary));
-  box-shadow: 0 2px 25px 2px hsl(var(--primary));
+  box-shadow: 0 5px 25px 5px hsl(var(--primary));
 }
 
 .dock-links a:hover,
-.dock-links a.active {
+.dock-links a.active,
+.dock-links a:hover:not(.link) {
   color: hsl(var(--primary));
   background-color: hsla(var(--accentPri));
 }
 
 .dock-links:not(:last-child) a:not(.active) {
   opacity: .5;
+}
+
+.dock-links:not(:last-child) a.left:hover {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, transparent, hsla(var(--accentPri)));
+}
+
+.dock-links:not(:last-child) a.right:hover {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, hsla(var(--accentPri)), transparent);
 }
 
 .dock-links a svg {
