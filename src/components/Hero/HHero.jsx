@@ -22,6 +22,7 @@ const HHero = () => {
                             <HiPlus />
                         </div>
                         <div className='window-content'>
+                            <h1 className='slant-text'>Developer</h1>
                             <div className='Hhero-content'>
                                 <div className='Hhero-detail'>
                                     <div className='Hhero-text'>

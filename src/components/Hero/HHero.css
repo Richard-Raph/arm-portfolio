@@ -136,6 +136,11 @@
     background-color: #101010b3;
 }
 
+.window-content .slant-text {
+    top: 0;
+    transform: translateX(-50%);
+}
+
 .Hhero-content {
     gap: 16px;
     z-index: -1;
@@ -145,7 +150,6 @@
     position: relative;
     flex-direction: column;
     color: hsl(var(--primary));
-    /* transform: translate3d(0px, 0px, 0px) rotate(-6deg); */
 }
 
 .Hhero-detail {
@@ -178,7 +182,7 @@
 .Hhero-detail .Hhero-text h1 {
     line-height: 1.6em;
     letter-spacing: -.025em;
-    font-size: clamp(1.5rem, 7vw, 5rem);
+    font-size: clamp(3rem, 7vw, 5rem);
 }
 
 .Hhero-detail .Hhero-text span {
@@ -241,16 +245,20 @@
 
 @keyframes marquee {
   0% {
-    transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(5deg, 0deg);
+    transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   }
   100% {
-    transform: translate3d(-200%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(5deg, 0deg);
+    transform: translate3d(-200%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   }
 }
 
 @media (min-width: 991px) {
     .Hhero {
         padding: 0;
+    }
+
+    .window-content .slant-text {
+        top: -75px;
     }
 
     .Hhero-fade {

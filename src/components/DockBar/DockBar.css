@@ -12,6 +12,10 @@
   justify-content: space-between;
 }
 
+.dock-bar:has(.dock-logo.hidden) {
+  justify-content: center;
+}
+
 .dock-background {
   width: 100%;
   z-index: 10;
@@ -24,8 +28,14 @@
 
 .dock-logo {
   z-index: 9;
+  display: flex;
   align-self: center;
   pointer-events: auto;
+  animation: slideOut .7s ease-out;
+}
+
+.dock-logo.hidden {
+  display: none;
 }
 
 .dock-logo img {
@@ -50,13 +60,17 @@
   transition: box-shadow 1s cubic-bezier(.23, 1, .32, 1), border .6s cubic-bezier(.165, .84, .44, 1);
 }
 
+.dock-links.show {
+  display: flex;
+  animation: slideIn .7s ease-out;
+}
+
 .dock-links:not(:last-child):has(a.active) {
   background-color: transparent;
   border-color: hsl(var(--primary));
 }
 
 .dock-links:last-child {
-  display: flex;
   height: max-content;
   flex-direction: column;
 }
@@ -185,22 +199,51 @@
   }
 }
 
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (min-width: 768px) {
   .dock-bar {
     align-items: center;
   }
+  
+  .dock-bar:has(.dock-logo.hidden) {
+    justify-content: space-between;
+  }
 
-  .dock-links:last-child {
-    height: 48px;
-    flex-direction: row;
+  .dock-links.show {
+    animation: none;
   }
 
   .dock-links:last-child {
     box-shadow: none;
+    flex-direction: row;
     background: transparent;
   }
 
   .dock-links,
+  .dock-logo.hidden,
   .dock-links a[data-title]:hover::after {
     display: flex;
   }

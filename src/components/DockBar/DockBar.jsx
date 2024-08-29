@@ -1,11 +1,12 @@
 import './DockBar.css';
-import { useState } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/logo-fff.webp';
+import { useState, useEffect, useCallback } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
-const DockBar = () => {
+export default function DockBar() {
   const location = useLocation();
+  const [showLinks, setShowLinks] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
 
   const isHome = location.pathname === '/';
@@ -14,14 +15,39 @@ const DockBar = () => {
     setActiveIndex(index);
   };
 
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    setShowLinks(scrollPosition > 100);
+  }, []);
+
+  const handleLogoClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <nav className='dock-bar'>
       <div className='dock-background'></div>
-      <NavLink to='/' exact='true' className='dock-logo' title='Home'>
+      <NavLink
+        to='/'
+        exact='true'
+        title='Home'
+        onClick={handleLogoClick}
+        className={`dock-logo ${showLinks ? 'hidden' : ''}`}
+      >
         <img src={Logo} alt='Logo' />
       </NavLink>
 
-      <div className='dock-links'>
+      <div className={`dock-links ${showLinks ? 'show' : ''}`}>
         {[
           { to: '/about', text: 'About', title: 'About Me' },
           { to: '/project', text: 'Projects', title: 'My Works' },
@@ -40,7 +66,7 @@ const DockBar = () => {
         ))}
       </div>
 
-      <div className='dock-links'>
+      <div className={`dock-links ${showLinks ? '' : 'show'}`}>
         <Link to='https://github.com/Richard-Raph' target='_blank' rel='noopener noreferrer' data-title='Github'>
           <FaGithub />
         </Link>
@@ -59,6 +85,4 @@ const DockBar = () => {
       </div>
     </nav>
   );
-};
-
-export default DockBar;
+}

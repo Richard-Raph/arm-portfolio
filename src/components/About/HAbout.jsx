@@ -3,6 +3,7 @@ import './HAbout.css';
 const HAbout = () => {
     return (
         <section className='habout' data-aos='fade-up' id='about'>
+            <h1 className='slant-text'>About Me</h1>
             <div className='paper'>
                 <div className='pin'>
                     <span className='metal'></span>

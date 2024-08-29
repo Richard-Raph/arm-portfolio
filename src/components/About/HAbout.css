@@ -24,7 +24,7 @@
 
 .paper h2 {
     margin: auto;
-    color: hsl(var(--accent));
+    color: hsl(var(--primary));
     font-size: clamp(.5rem, 4vw, 2rem);
 }
 
@@ -63,8 +63,8 @@
     height: 35px;
     position: absolute;
     border-radius: 50%;
-    background-color: #d02627;
-    background: radial-gradient(circle at bottom right, #fc7e7d, 25%,#9e0608, 90%,#d02627);
+    background-color: hsl(var(--secondary));
+    background: radial-gradient(circle at bottom right, hsla(var(--accentPri)), 25%,hsl(var(--accent)), 90%,hsl(var(--secondary)));
 }
 
 .bottom-circle::before {
@@ -76,7 +76,7 @@
     position: absolute;
     transform: rotate(55deg);
     transform-origin: 100% 100%;
-    background: linear-gradient(to right,#9e0608, 30%, #d02627, 90%, #fc7e7d);
+    background: linear-gradient(to right,hsl(var(--accent)), 30%, hsl(var(--secondary)), 90%, hsla(var(--accentPri)));
 }
 
 .bottom-circle::after {
@@ -87,5 +87,5 @@
     height: 25px;
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle at right, #fc7e7d, 30%, #d02627,#9e0608 80%);
+    background: radial-gradient(circle at right, hsla(var(--accentPri)), 30%, hsl(var(--secondary)),hsl(var(--accent)) 80%);
 }
