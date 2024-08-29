@@ -223,7 +223,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media all and (min-width: 750px) {
   .dock-bar {
     align-items: center;
   }

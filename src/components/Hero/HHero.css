@@ -142,9 +142,9 @@
 }
 
 .Hhero-content {
-    gap: 16px;
-    z-index: -1;
+    gap: 10px;
     width: 100%;
+    z-index: -1;
     display: flex;
     overflow: hidden;
     position: relative;
@@ -180,9 +180,8 @@
 }
 
 .Hhero-detail .Hhero-text h1 {
-    line-height: 1.6em;
     letter-spacing: -.025em;
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-size: clamp(3rem, 8vw, 8rem);
 }
 
 .Hhero-detail .Hhero-text span {
@@ -252,16 +251,18 @@
   }
 }
 
-@media (min-width: 991px) {
+@media all and (min-width: 750px) {
     .Hhero {
         padding: 0;
     }
 
-    .window-content .slant-text {
-        top: -75px;
-    }
-
     .Hhero-fade {
         background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 40%);
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .window-content .slant-text {
+        top: -70px;
     }
 }
