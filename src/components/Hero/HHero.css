@@ -129,6 +129,7 @@
     height: 100%;
     display: flex;
     column-gap: 40px;
+    user-select: none;
     position: relative;
     align-items: center;
     flex-direction: column;

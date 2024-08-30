@@ -82,7 +82,19 @@ button,
   cursor: url('./assets/cursors/pointer.png'), pointer;
 }
 
-.back {
+.preloader {
+  inset: 0;
+  display: flex;
+  width: 100dvw;
+  z-index: 9999;
+  height: 100dvh;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--secondary));
+}
+
+/* .back {
   inset: 0;
   width: 100%;
   position: fixed;
@@ -157,7 +169,7 @@ button,
   50% { content: '3'; }
   70% { content: '2'; }
   90% { content: '1'; }
-}
+} */
 
 body {
   width: 100%;
