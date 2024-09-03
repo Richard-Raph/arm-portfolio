@@ -1,14 +1,16 @@
 import './DockBar.css';
 import Logo from '../../assets/images/logo-fff.webp';
 import { useState, useEffect, useCallback } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 export default function DockBar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [showLinks, setShowLinks] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const hasHash = location.hash !== '';
   const isHome = location.pathname === '/';
 
   const handleLinkClick = (index) => {
@@ -16,14 +18,21 @@ export default function DockBar() {
   };
 
   const handleScroll = useCallback(() => {
-    const scrollPosition = window.scrollY;
-    setShowLinks(scrollPosition > 100);
+    setShowLinks(window.scrollY > 100);
   }, []);
 
   const handleLogoClick = (e) => {
+    e.preventDefault();
+
     if (isHome) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (hasHash) {
+        navigate('/', { replace: true });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      navigate('/');
     }
   };
 
@@ -39,7 +48,6 @@ export default function DockBar() {
       <div className='dock-background'></div>
       <NavLink
         to='/'
-        exact='true'
         title='Home'
         onClick={handleLogoClick}
         className={`dock-logo ${showLinks ? 'hidden' : ''}`}

@@ -142,6 +142,17 @@
     transform: translateX(-50%);
 }
 
+.window-content img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -9;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    filter: grayscale(100%);
+}
+
 .Hhero-content {
     gap: 10px;
     width: 100%;
