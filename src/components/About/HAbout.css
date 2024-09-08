@@ -1,12 +1,13 @@
 .habout {
     z-index: 1;
     width: 100%;
-    display: grid;
+    display: flex;
     padding: 50px 0;
     overflow: hidden;
     position: relative;
     min-height: 100dvh;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur(2px);
 }
 
@@ -14,13 +15,17 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .habout-img {
-    position: relative;
-    width: 400px;
+    width: 100%;
     height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .habout-img img {
@@ -39,7 +44,7 @@
 }
 
 .habout-text {
-    width: 400px;
+    width: 100%;
     height: 500px;
     position: relative;
     background: hsla(var(--accentPri));
@@ -47,7 +52,7 @@
 }
 
 .habout-text::before {
-    left: 45px;
+    left: 30px;
     width: 2px;
     content: '';
     height: 100%;
@@ -58,14 +63,15 @@
 .habout-text .lines {
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-image: repeating-linear-gradient(hsl(var(--primary)) 0px, hsl(var(--primary)) 24px, hsl(var(--secondary)) 25px);
 }
 
 .habout-text .lines div {
     top: 20px;
-    left: 60px;
-    right: 10px;
+    left: 35px;
     outline: none;
+    font-size: 1rem;
     overflow: hidden;
     line-height: 26px;
     position: absolute;
@@ -74,14 +80,24 @@
     color: hsl(var(--secondary));
 }
 
-.habout-text .lines div::first-line {
+.habout-text .lines div span {
+    display: block;
     font-weight: bold;
+    text-align: center;
+}
+
+.habout-text .lines div a {
+    font-size: 1.1rem;
+    color: transparent;
+    letter-spacing: 1px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:hsl(var(--secondary));
 }
 
 .habout-text .holes {
-    left: 10px;
-    width: 25px;
-    height: 25px;
+    left: 7px;
+    width: 15px;
+    height: 15px;
     position: absolute;
     border-radius: 50%;
     background: hsl(var(--primary));
@@ -89,16 +105,57 @@
 }
 
 .habout-text .holes.top {
-    top: 10%;
+    top: 11%;
 }
 
 .habout-text .holes.middle {
-    top: 50%;
+    top: 51%;
 }
 
 .habout-text .holes.bottom {
-    bottom: 10%;
+    bottom: 11%;
 }
+
+@media all and (min-width: 750px) {
+    .habout-content {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .habout-img,
+    .habout-text {
+        width: 400px;
+    }
+
+    .habout-text::before {
+        left: 45px;
+    }
+
+    .habout-text .lines div {
+        left: 60px;
+        right: 10px;
+    }
+
+    .habout-text .holes {
+        left: 10px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .habout-text .holes.top {
+        top: 10%;
+    }
+
+    .habout-text .holes.middle {
+        top: 50%;
+    }
+
+    .habout-text .holes.bottom {
+        bottom: 10%;
+    }
+}
+
+@media all and (min-width: 1200px) {}
 
 /* .paper {
     width: 300px;

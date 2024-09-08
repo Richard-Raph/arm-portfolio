@@ -1,4 +1,5 @@
 import './HAbout.css';
+import { Link } from 'react-router-dom';
 import About from '../../assets/images/f.png';
 import Doodle from '../../assets/images/doodle.webp';
 
@@ -22,10 +23,8 @@ const HAbout = () => {
                 <div className='habout-text'>
                     <div className='lines'>
                         <div>
-                            {/* <pre> */}
-                                Welcome to my own digital living room.
-                                The name&apos;s Richard Raphael dgwhdeygfefugfvyugvuu4uh hgv hgi uhwiogio h iwg ib4ibibiybi hyi byi jiotlcucuyuyyyyyyyyyyyyyyyfyfyu lfuylfvyufyuf lyygyuyufyufyufyfyfyuf y.
-                            {/* </pre> */}
+                            <span>Welcome to my digital living room.</span>
+                            The name&apos;s <Link to='/about'>Richard Raphael</Link> dgwhdeygfefugfvyugvuu4uh hgv hgi uhwiogio h iwg ib4ibibiybi hyi byi jiotlcucuyuyyyyyyyyyyyyyyyfyfyu lfuylfvyufyuf lyygyuyufyufyufyfyfyuf y.
                         </div>
                     </div>
                     <span className='holes top'></span>
