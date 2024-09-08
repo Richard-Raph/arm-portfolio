@@ -20,14 +20,17 @@ const HAbout = () => {
                     <img src={About} alt='about-me' />
                 </div>
                 <div className='habout-text'>
-                    <div className='paper'>
-                        <div className='lines'>
-                            <div>lorem ipsus djjwj</div>
+                    <div className='lines'>
+                        <div>
+                            {/* <pre> */}
+                                Welcome to my own digital living room.
+                                The name&apos;s Richard Raphael dgwhdeygfefugfvyugvuu4uh hgv hgi uhwiogio h iwg ib4ibibiybi hyi byi jiotlcucuyuyyyyyyyyyyyyyyyfyfyu lfuylfvyufyuf lyygyuyufyufyufyfyfyuf y.
+                            {/* </pre> */}
                         </div>
-                        <div className='holes hole-top'></div>
-                        <div className='holes hole-middle'></div>
-                        <div className='holes hole-bottom'></div>
                     </div>
+                    <span className='holes top'></span>
+                    <span className='holes middle'></span>
+                    <span className='holes bottom'></span>
                 </div>
             </div>
         </section>

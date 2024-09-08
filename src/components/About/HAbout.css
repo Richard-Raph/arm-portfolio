@@ -29,7 +29,6 @@
     height: 100%;
     object-fit: cover;
     position: absolute;
-    filter: grayscale(100%);
 }
 
 .habout-img img:first-child {
@@ -39,59 +38,65 @@
     filter: grayscale(100%);
 }
 
-.paper {
+.habout-text {
     width: 400px;
     height: 500px;
     position: relative;
-    box-shadow: 0px 0px 5px 0px #888;
-    background: rgba(255, 255, 255, 0.9);
+    background: hsla(var(--accentPri));
+    box-shadow: 0px 0px 5px 0px hsla(var(--accentSec));
 }
 
-.paper::before {
+.habout-text::before {
     left: 45px;
     width: 2px;
     content: '';
     height: 100%;
     position: absolute;
-    background: rgba(255, 0, 0, 0.4);
+    background: hsl(var(--accent));
 }
 
-.lines {
+.habout-text .lines {
     width: 100%;
     height: 100%;
-    background-image: repeating-linear-gradient(hsl(var(--primary)) 0px, hsl(var(--primary)) 24px, steelblue 25px);
+    background-image: repeating-linear-gradient(hsl(var(--primary)) 0px, hsl(var(--primary)) 24px, hsl(var(--secondary)) 25px);
 }
 
-.lines div {
+.habout-text .lines div {
     top: 20px;
-    left: 50px;
+    left: 60px;
     right: 10px;
     outline: none;
     overflow: hidden;
-    line-height: 25px;
+    line-height: 26px;
     position: absolute;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
     color: hsl(var(--secondary));
 }
 
-.holes {
+.habout-text .lines div::first-line {
+    font-weight: bold;
+}
+
+.habout-text .holes {
     left: 10px;
     width: 25px;
     height: 25px;
     position: absolute;
     border-radius: 50%;
-    background: lightgoldenrodyellow;
-    box-shadow: inset 0px 0px 2px 0px #888;
+    background: hsl(var(--primary));
+    box-shadow: inset 0px 0px 2px 0px hsl(var(--secondary));
 }
 
-.hole-top {
+.habout-text .holes.top {
     top: 10%;
 }
 
-.hole-middle {
+.habout-text .holes.middle {
     top: 50%;
 }
 
-.hole-bottom {
+.habout-text .holes.bottom {
     bottom: 10%;
 }
 
