@@ -22,7 +22,7 @@ const HAbout = () => {
                 </div>
                 <div className='habout-text'>
                     <div className='lines'>
-                        <div>
+                        <div className='typed'>
                             <span>Welcome to my digital living room.</span>
                             The name&apos;s <Link to='/about'>Richard Raphael</Link> dgwhdeygfefugfvyugvuu4uh hgv hgi uhwiogio h iwg ib4ibibiybi hyi byi jiotlcucuyuyyyyyyyyyyyyyyyfyfyu lfuylfvyufyuf lyygyuyufyufyufyfyfyuf y.
                         </div>
