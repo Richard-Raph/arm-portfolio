@@ -99,6 +99,7 @@
   padding: 0.6rem;
 }
 
+.dock-logo[data-title]:hover::after,
 .dock-links a[data-title]:hover::after {
   display: none;
   margin: 0 auto;
@@ -112,6 +113,11 @@
   color: hsl(var(--secondary));
   border-radius: var(--radius);
   background: hsl(var(--primary));
+}
+
+.dock-logo[data-title]:hover::after {
+  display: flex;
+  bottom: -1.3rem;
 }
 
 .dock-links:not(:last-child) a[data-title].left::after {

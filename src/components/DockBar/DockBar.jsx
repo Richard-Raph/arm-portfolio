@@ -48,7 +48,7 @@ export default function DockBar() {
       <div className='dock-background'></div>
       <NavLink
         to='/'
-        title='Home'
+        data-title='Home'
         onClick={handleLogoClick}
         className={`dock-logo ${showLinks ? 'hidden' : ''}`}
       >
