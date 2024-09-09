@@ -290,6 +290,7 @@ main .slant-text {
 .paper {
   width: 100%;
   height: 100%;
+  color: black;
   min-height: 60vh;
   padding: 35px 20px;
   background: repeating-linear-gradient(#F1EDE9, #F1EDE9 31px, #94ACD4 31px, #94ACD4 32px);

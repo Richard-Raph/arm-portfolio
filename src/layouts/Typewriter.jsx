@@ -4,10 +4,9 @@ import { useState, useEffect, useCallback } from 'react';
 export default function Typewriter({
     text = '',
     speed = 200,
-    cursor = '_',
-    eraseSpeed = 100,
-    eraseDelay = 500,
-    typingDelay = 2500,
+    eraseSpeed = 300,
+    eraseDelay = 1000,
+    typingDelay = 1000,
 }) {
     const [isTyping, setIsTyping] = useState(true);
     const [currentText, setCurrentText] = useState('');
@@ -72,17 +71,11 @@ export default function Typewriter({
         };
     }, [currentText, isTyping, currentIndex, speed, eraseDelay, eraseSpeed, typingDelay, getRawText, type, erase]);
 
-    return (
-        <>
-            <code>{currentText}</code>
-            <i>{cursor}</i>
-        </>
-    );
+    return ( <code>Richard Raphael {currentText}</code> );
 }
 
 Typewriter.propTypes = {
     speed: PropTypes.number,
-    cursor: PropTypes.string,
     eraseSpeed: PropTypes.number,
     eraseDelay: PropTypes.number,
     typingDelay: PropTypes.number,

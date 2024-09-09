@@ -24,7 +24,7 @@ const HAbout = () => {
                     <div className='lines'>
                         <div>
                             <span>Welcome To My Digital Living Room.</span>
-                            <Typewriter text={'Richard Raphael is the name, Development is my game'} />
+                            <Typewriter text={'is the name, Development is my game.'} />
                         </div>
                     </div>
                     <span className='holes top'></span>
