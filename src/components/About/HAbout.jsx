@@ -1,6 +1,6 @@
 import './HAbout.css';
-import { Link } from 'react-router-dom';
 import About from '../../assets/images/f.png';
+import Typewriter from '../../layouts/Typewriter';
 import Doodle from '../../assets/images/doodle.webp';
 
 const HAbout = () => {
@@ -22,9 +22,9 @@ const HAbout = () => {
                 </div>
                 <div className='habout-text'>
                     <div className='lines'>
-                        <div className='typed'>
-                            <span>Welcome to my digital living room.</span>
-                            The name&apos;s <Link to='/about'>Richard Raphael</Link> dgwhdeygfefugfvyugvuu4uh hgv hgi uhwiogio h iwg ib4ibibiybi hyi byi jiotlcucuyuyyyyyyyyyyyyyyyfyfyu lfuylfvyufyuf lyygyuyufyufyufyfyfyuf y.
+                        <div>
+                            <span>Welcome To My Digital Living Room.</span>
+                            <Typewriter text={'Richard Raphael is the name, Development is my game'} />
                         </div>
                     </div>
                     <span className='holes top'></span>
