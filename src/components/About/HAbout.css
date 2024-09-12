@@ -7,6 +7,7 @@
     position: relative;
     min-height: 100dvh;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     backdrop-filter: blur(2px);
 }
@@ -168,13 +169,13 @@
 
 @media all and (min-width: 1200px) {}
 
-/* .paper {
+.paper {
     width: 300px;
     height: 100px;
     display: flex;
     position: relative;
     justify-content: center;
-    transform: rotate(10deg);
+    /* transform: rotate(10deg); */
     transform-origin: top left;
     box-shadow: 3px 3px 2px hsla(var(--accentPri));
     background: linear-gradient(135deg, hsl(var(--secondary)), 30%, hsl(var(--accent)));
@@ -246,4 +247,4 @@
     position: absolute;
     border-radius: 50%;
     background: radial-gradient(circle at right, hsla(var(--accentPri)), 30%, hsl(var(--secondary)),hsl(var(--accent)) 80%);
-} */
+}
