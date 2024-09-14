@@ -8,8 +8,8 @@
     min-height: 100dvh;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
     backdrop-filter: blur(2px);
+    justify-content: space-around;
 }
 
 .habout-content {
@@ -167,7 +167,12 @@
     }
 }
 
-@media all and (min-width: 1200px) {}
+@media all and (min-width: 1200px) {
+    .habout-img,
+    .habout-text {
+        width: 450px;
+    }
+}
 
 .paper {
     width: 300px;

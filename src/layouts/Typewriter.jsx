@@ -3,9 +3,9 @@ import { useState, useEffect, useCallback } from 'react';
 
 export default function Typewriter({
     text = '',
-    speed = 200,
+    speed = 300,
     eraseSpeed = 300,
-    eraseDelay = 1000,
+    eraseDelay = 500,
     typingDelay = 1000,
 }) {
     const [isTyping, setIsTyping] = useState(true);

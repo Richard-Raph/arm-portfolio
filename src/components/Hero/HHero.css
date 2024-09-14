@@ -266,4 +266,8 @@
     .window-content .slant-text {
         top: -70px;
     }
+
+    .Hhero-fade {
+        background-image: linear-gradient(to bottom, #10101000, hsl(var(--secondary)) 20%);
+    }
 }
