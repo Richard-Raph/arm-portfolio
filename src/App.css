@@ -7,7 +7,7 @@
   scroll-behavior: smooth;
   transition: all .5s ease;
   cursor: url('./assets/cursors/arrow.png'), auto;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
 }
 
 /* :root {
