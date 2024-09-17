@@ -240,38 +240,6 @@ body>svg:nth-child(2) {
   pointer-events: none;
 }
 
-main,
-#root {
-  width: 90%;
-  z-index: 9;
-  margin: 0 auto;
-  position: relative;
-  min-height: 100dvh;
-  color: hsl(var(--primary));
-  background: hsla(var(--accentSec));
-}
-
-main {
-  width: 100%;
-  z-index: -1;
-  height: 100%;
-}
-
-main .slant-text {
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  opacity: .55;
-  position: absolute;
-  text-align: center;
-  white-space: nowrap;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: hsla(var(--accentPri));
-  font-size: clamp(3rem, 15vw, 15rem);
-  transform: translate(-50%, -50%) rotate(-30deg);
-}
-
 .scroll-top {
   opacity: 0;
   width: 44px;
@@ -304,6 +272,38 @@ main .slant-text {
   opacity: 1;
   bottom: 15px;
   visibility: visible;
+}
+
+main,
+#root {
+  width: 90%;
+  z-index: 9;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
+  color: hsl(var(--primary));
+  background: hsla(var(--accentSec));
+}
+
+main {
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+}
+
+main .slant-text {
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  opacity: .55;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: hsla(var(--accentPri));
+  font-size: clamp(3rem, 15vw, 15rem);
+  transform: translate(-50%, -50%) rotate(-30deg);
 }
 
 /* .notepad {
