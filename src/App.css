@@ -7,7 +7,7 @@
   scroll-behavior: smooth;
   transition: all .5s ease;
   cursor: url('./assets/cursors/arrow.png'), auto;
-  font-family: "__Inter_aaf875", "__Inter_Fallback_aaf875", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 /* :root {
@@ -270,6 +270,40 @@ main .slant-text {
   color: hsla(var(--accentPri));
   font-size: clamp(3rem, 15vw, 15rem);
   transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.scroll-top {
+  opacity: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  z-index: 99999;
+  position: fixed;
+  visibility: hidden;
+  place-items: center;
+  border-radius: 50px;
+  inset: auto 15px -15px auto;
+  background-color: hsl(var(--primary));
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, hsl(var(--secondary)), transparent 20%);
+}
+
+.scroll-top:hover svg {
+  color: hsl(var(--primary));
+}
+
+.scroll-top svg {
+  width: 24px;
+  height: 24px;
+  color: hsl(var(--secondary));
+}
+
+.scroll-top.active {
+  opacity: 1;
+  bottom: 15px;
+  visibility: visible;
 }
 
 /* .notepad {

@@ -147,7 +147,6 @@
     width: 100%;
     z-index: -1;
     display: flex;
-    overflow: hidden;
     position: relative;
     flex-direction: column;
     color: hsl(var(--primary));
@@ -212,7 +211,7 @@
 
 .Hhero-fade a svg {
     width: 40px;
-    opacity: .5;
+    opacity: .3;
     height: 50px;
     display: block;
     color: hsl(var(--primary));

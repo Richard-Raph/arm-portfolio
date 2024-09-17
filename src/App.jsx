@@ -1,7 +1,6 @@
 import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Top from './layouts/Top';
 import Home from './routes/Home';
 import Blog from './routes/Blog';
 import About from './routes/About';
@@ -11,6 +10,7 @@ import Contact from './routes/Contact';
 import Project from './routes/Project';
 import Preloader from './layouts/Preloader';
 import { useState, useEffect } from 'react';
+import { LoadTop, PageTop } from './layouts/Top';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -26,16 +26,18 @@ function App() {
 
   useEffect(() => {
     AOS.init();
-    AOS.refresh();
-  }, [])
+  }, []);
 
   return (
     <>
-      {loading ? <Preloader /> : 
+      {loading ? (
+        <Preloader />
+      ) : (
         <Router>
           <Layout>
-            <Top />
             <Grain />
+            <LoadTop />
+            <PageTop />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/blog' element={<Blog />} />
@@ -45,7 +47,7 @@ function App() {
             </Routes>
           </Layout>
         </Router>
-      }
+      )}
     </>
   );
 }
