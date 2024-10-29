@@ -5,9 +5,7 @@ import { useLocation } from 'react-router-dom';
 const LoadTop = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
 
   return null;
 };
@@ -15,9 +13,7 @@ const LoadTop = () => {
 const PageTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleScroll = () => {
-    setIsVisible(window.scrollY > 300);
-  };
+  const handleScroll = () => setIsVisible(window.scrollY > 300);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -32,7 +28,7 @@ const PageTop = () => {
   };
 
   return (
-    <span onClick={scrollToTop} className={`scroll-top ${isVisible ? 'active' : ''}`}>
+    <span onClick={scrollToTop} className={`scroll-top pointer ${isVisible ? 'active' : ''}`}>
       <BiUpArrowAlt />
     </span>
   );

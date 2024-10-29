@@ -5,11 +5,8 @@ export default function About() {
     useDocumentTitle('About ℹ Richard Raphael');
 
     return (
-        <>
-            <main>
-                <Hero />
-            </main>
-            <footer></footer>
-        </>
+        <main>
+            <Hero />
+        </main>
     );
 }

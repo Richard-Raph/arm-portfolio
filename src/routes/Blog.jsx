@@ -4,9 +4,8 @@ export default function Blog() {
     useDocumentTitle('Blog 📰 Richard Raphael');
 
     return (
-        <>
-            <main></main>
-            <footer></footer>
-        </>
+        <main>
+        
+        </main>
     );
 }

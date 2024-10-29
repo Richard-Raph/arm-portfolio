@@ -4,9 +4,8 @@ export default function Project() {
   useDocumentTitle('Projects 🖥 Richard Raphael');
 
   return (
-    <>
-      <main></main>
-      <footer></footer>
-    </>
+    <main>
+
+    </main>
   );
 }

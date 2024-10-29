@@ -6,12 +6,9 @@ export default function Home() {
   useDocumentTitle('Home 🏠 Richard Raphael');
 
   return (
-    <>
-      <main>
-        <Hero />
-        <HAbout />
-      </main>
-      <footer></footer>
-    </>
+    <main>
+      <Hero />
+      <HAbout />
+    </main>
   );
 }

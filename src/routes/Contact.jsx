@@ -4,9 +4,8 @@ export default function Contact() {
     useDocumentTitle('Contact 📞 Richard Raphael');
 
     return (
-        <>
-            <main></main>
-            <footer></footer>
-        </>
+        <main>
+        
+        </main>
     );
 }

@@ -6,7 +6,6 @@ import Blog from './routes/Blog';
 import About from './routes/About';
 import Contact from './routes/Contact';
 import Project from './routes/Project';
-import Grain from './components/Grain';
 import Layout from './components/Layout';
 import { useState, useEffect } from 'react';
 import Preloader from './components/Preloader';
@@ -17,17 +16,14 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 6000);
-
+    const timer = setTimeout(() => setLoading(false), 6000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     AOS.init();
   }, []);
-
+  
   return (
     <>
       {loading ? (
@@ -35,7 +31,6 @@ function App() {
       ) : (
         <Router>
           <Layout>
-            <Grain />
             <LoadTop />
             <PageTop />
             <Routes>

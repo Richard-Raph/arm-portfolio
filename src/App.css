@@ -20,6 +20,11 @@
   --accentPri: 155, 100%, 100%, 25%;
 }
 
+::selection {
+  color: hsl(var(--primary));
+  background-color: hsl(var(--secondary));
+}
+
 .text {
   cursor: url('./assets/cursors/text.png'), text;
 }
@@ -37,13 +42,12 @@ button,
 
 .preloader {
   inset: 0;
-  display: flex;
+  display: grid;
   width: 100dvw;
   z-index: 9999;
   height: 100dvh;
   position: fixed;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
   background-color: hsl(var(--secondary));
 }
 
@@ -53,178 +57,6 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   background-color: hsl(var(--secondary));
-}
-
-body:not(.dark)>svg * {
-  opacity: 100%;
-  fill: hsl(var(--accentHi));
-}
-
-body>svg {
-  z-index: -1;
-  opacity: 50%;
-  position: fixed;
-}
-
-body>svg:nth-child(1) {
-  inset: 0 0 0 auto;
-}
-
-body>svg:nth-child(2) {
-  inset: auto 0 0;
-}
-
-.circle div {
-  inset: 10%;
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  border-radius: 50px;
-  animation: animate linear infinite;
-  border: 2px solid hsl(var(--accentPri));
-}
-
-.circle div .dot {
-  inset: 20%;
-  width: 10px;
-  height: 10px;
-  position: fixed;
-  border-radius: 50px;
-  background: hsl(var(--accentPri));
-}
-
-.circle div:nth-child(1) {
-  inset: 20%;
-  animation-duration: 8s;
-}
-
-.circle div:nth-child(2) {
-  inset: 70% 80%;
-  animation-duration: 10s;
-}
-
-.circle div:nth-child(3) {
-  inset: 40%;
-  animation-duration: 3s;
-}
-
-.circle div:nth-child(4) {
-  inset: 66% 30%;
-  animation-duration: 7s;
-}
-
-.circle div:nth-child(5) {
-  inset: 90% 10%;
-  animation-duration: 9s;
-}
-
-.circle div:nth-child(6) {
-  inset: 30% 60%;
-  animation-duration: 5s;
-}
-
-.circle div:nth-child(7) {
-  inset: 70% 20%;
-  animation-duration: 8s;
-}
-
-.circle div:nth-child(8) {
-  inset: 75% 65%;
-  animation-duration: 10s;
-}
-
-.circle div:nth-child(9) {
-  inset: 50%;
-  animation-duration: 6s;
-}
-
-.circle div:nth-child(10) {
-  inset: 45% 20%;
-  animation-duration: 10s;
-}
-
-.circle div:nth-child(11) {
-  inset: 10% 90%;
-  animation-duration: 9s;
-}
-
-.circle div:nth-child(12) {
-  inset: 20% 70%;
-  animation-duration: 7s;
-}
-
-.circle div:nth-child(13) {
-  inset: 20%;
-  animation-duration: 8s;
-}
-
-.circle div:nth-child(14) {
-  inset: 60% 5%;
-  animation-duration: 6s;
-}
-
-.circle div:nth-child(15) {
-  inset: 50% 90%;
-  animation-duration: 9s;
-}
-
-.circle div:nth-child(16) {
-  inset: 90% 95%;
-  animation-duration: 10s;
-}
-
-@keyframes animate {
-  0% {
-    transform: scale(0) translateY(0) rotate(80deg);
-  }
-
-  100% {
-    transform: scale(1.3) translateY(-100px) rotate(360deg);
-  }
-}
-
-.grain {
-  top: 0;
-  left: 0;
-  z-index: 9;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  pointer-events: none;
-}
-
-.scroll-top {
-  opacity: 0;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  z-index: 99999;
-  position: fixed;
-  visibility: hidden;
-  place-items: center;
-  border-radius: 50px;
-  inset: auto 15px -15px auto;
-  background-color: hsl(var(--primary));
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, hsl(var(--secondary)), transparent 20%);
-}
-
-.scroll-top:hover svg {
-  color: hsl(var(--primary));
-}
-
-.scroll-top svg {
-  width: 24px;
-  height: 24px;
-  color: hsl(var(--secondary));
-}
-
-.scroll-top.active {
-  opacity: 1;
-  bottom: 15px;
-  visibility: visible;
 }
 
 main,
@@ -258,31 +90,3 @@ main .slant-text {
   font-size: clamp(3rem, 15vw, 15rem);
   transform: translate(-50%, -50%) rotate(-30deg);
 }
-
-/* .notepad {
-  width: 80%;
-  overflow: hidden;
-  max-width: 600px;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 10px 10px 40px rgba(black, .15);
-}
-
-.top {
-  width: 100%;
-  height: 50px;
-  background: #333;
-  border-radius: 5px 5px 0 0;
-}
-
-.paper {
-  width: 100%;
-  height: 100%;
-  color: black;
-  min-height: 60vh;
-  padding: 35px 20px;
-  background: repeating-linear-gradient(#F1EDE9, #F1EDE9 31px, #94ACD4 31px, #94ACD4 32px);
-  font-family: 'Shadows Into Light', cursive;
-  line-height: 32px;
-  outline: 0;
-  font-size: 22px;
-} */
