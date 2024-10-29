@@ -1,4 +1,4 @@
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import useDocumentTitle from '../helpers/useDocumentTitle';
 
 export default function Blog() {
     useDocumentTitle('Blog 📰 Richard Raphael');

@@ -1,6 +1,6 @@
-import Hero from '../components/Hero/HHero';
-import HAbout from '../components/About/HAbout';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import Hero from '../pages/HHero';
+import HAbout from '../pages/HAbout';
+import useDocumentTitle from '../helpers/useDocumentTitle';
 
 export default function Home() {
   useDocumentTitle('Home 🏠 Richard Raphael');

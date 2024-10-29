@@ -1,5 +1,5 @@
-import './DockBar.css';
-import Logo from '../../assets/images/logo-fff.webp';
+import '../assets/css/DockBar.css';
+import Logo from '../assets/images/logo-fff.webp';
 import { useState, useEffect, useCallback } from 'react';
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaXTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa6';

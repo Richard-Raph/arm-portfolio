@@ -4,13 +4,13 @@ import 'aos/dist/aos.css';
 import Home from './routes/Home';
 import Blog from './routes/Blog';
 import About from './routes/About';
-import Grain from './layouts/Grain';
-import Layout from './layouts/Layout';
 import Contact from './routes/Contact';
 import Project from './routes/Project';
-import Preloader from './layouts/Preloader';
+import Grain from './components/Grain';
+import Layout from './components/Layout';
 import { useState, useEffect } from 'react';
-import { LoadTop, PageTop } from './layouts/Top';
+import Preloader from './components/Preloader';
+import { LoadTop, PageTop } from './components/Top';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {

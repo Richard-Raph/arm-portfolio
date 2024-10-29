@@ -1,7 +1,7 @@
-import './HAbout.css';
-import About from '../../assets/images/f.png';
-import Typewriter from '../../layouts/Typewriter';
-import Doodle from '../../assets/images/doodle.webp';
+import '../assets/css/HAbout.css';
+import About from '../assets/images/f.png';
+import Doodle from '../assets/images/doodle.webp';
+import Typewriter from '../components/Typewriter';
 
 const HAbout = () => {
     return (

@@ -1,4 +1,4 @@
-import './HHero.css';
+import '../assets/css/HHero.css';
 import { useEffect, useState } from 'react';
 import { HiPlus, HiOutlineArrowDown } from 'react-icons/hi2';
 

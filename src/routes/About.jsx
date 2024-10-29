@@ -1,5 +1,5 @@
-import Hero from '../components/Hero/AHero';
-import useDocumentTitle from '../hooks/useDocumentTitle';
+import Hero from '../pages/AHero';
+import useDocumentTitle from '../helpers/useDocumentTitle';
 
 export default function About() {
     useDocumentTitle('About ℹ Richard Raphael');

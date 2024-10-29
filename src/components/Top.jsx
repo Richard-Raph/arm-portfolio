@@ -32,9 +32,9 @@ const PageTop = () => {
   };
 
   return (
-    <a onClick={scrollToTop} className={`scroll-top ${isVisible ? 'active' : ''}`}>
+    <span onClick={scrollToTop} className={`scroll-top ${isVisible ? 'active' : ''}`}>
       <BiUpArrowAlt />
-    </a>
+    </span>
   );
 };
 

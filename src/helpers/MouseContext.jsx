@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext } from 'react';
-import useCustomCursor from '../hooks/useCustomCursor';
+import useCustomCursor from './useCustomCursor';
 
 export const MouseContext = createContext({
   cursorType: '',

@@ -1,4 +1,4 @@
-import './AHero.css';
+import '../assets/css/AHero.css';
 
 const AHero = () => {
     return (
