@@ -176,7 +176,7 @@
 .Hhero-detail:last-child .Hhero-text {
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color:hsl(var(--primary));
+    -webkit-text-stroke-color: hsl(var(--primary));
 }
 
 .Hhero-detail .Hhero-text h1 {
@@ -243,12 +243,13 @@
 }
 
 @keyframes marquee {
-  0% {
-    transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  }
-  100% {
-    transform: translate3d(-200%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  }
+    0% {
+        transform: translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 @media all and (min-width: 750px) {
