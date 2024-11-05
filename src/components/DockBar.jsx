@@ -97,6 +97,18 @@
 
 import { useRef } from 'react';
 import '../assets/css/DockBar.css';
+import { Link } from 'react-router-dom';
+import home from '../assets/images/home.webp';
+import blog from '../assets/images/blog.webp';
+import about from '../assets/images/about.webp';
+import daily from '../assets/images/daily.webp';
+import github from '../assets/images/github.webp';
+import contact from '../assets/images/contact.webp';
+import project from '../assets/images/project.webp';
+import youtube from '../assets/images/youtube.webp';
+import twitter from '../assets/images/twitter.webp';
+import terminal from '../assets/images/terminal.webp';
+import instagram from '../assets/images/instagram.webp';
 
 // Function for scaling values based on input ranges
 const scaleValue = (value, from, to) => {
@@ -141,23 +153,23 @@ export default function DockBar() {
     <nav ref={dockRef} className='dock-bar'>
       <ul>
         {[
-          { href: 'https://www.frontend.fyi', imgSrc: 'arc.png', tooltip: 'Arc Browser' },
-          { href: 'https://www.frontend.fyi', imgSrc: '1password.png', tooltip: '1Password' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'calendar.png', tooltip: 'Calendar' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'email.png', tooltip: 'Mail (who uses this app?!)' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'signal.png', tooltip: 'Signal' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'slack.png', tooltip: 'Slack' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'spotify.png', tooltip: 'Spotify' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'vscode.png', tooltip: 'VsCode' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'warp.png', tooltip: 'Warp' },
-          { href: 'https://www.frontend.fyi', imgSrc: 'frontendfyi.png', tooltip: 'Visit frontend.fyi' },
-          { href: 'https://youtu.be/_ZcIFTvLm64', imgSrc: 'youtube.png', tooltip: 'Watch this tutorial on YouTube' }
-        ].map(({ href, imgSrc, tooltip }, index) => (
+          { url: '/', imgSrc: home, tooltip: 'Home' },
+          { url: '/about', imgSrc: about, tooltip: 'About me' },
+          { url: '/project', imgSrc: project, tooltip: 'My works' },
+          { url: '/contact', imgSrc: contact, tooltip: 'Contact me' },
+          { url: '/blog', imgSrc: blog, tooltip: 'Follow my trends' },
+          { url: 'https://www.frontend.fyi', imgSrc: terminal, tooltip: 'Hire me!' },
+          { url: 'https://www.frontend.fyi', imgSrc: github, tooltip: 'My github repo' },
+          { url: 'https://www.frontend.fyi', imgSrc: daily, tooltip: 'Visit daily dev' },
+          { url: 'https://www.frontend.fyi', imgSrc: twitter, tooltip: 'My twitter(X) profile' },
+          { url: 'https://www.frontend.fyi', imgSrc: instagram, tooltip: 'My instagram profile' },
+          { url: 'https://youtu.be/_ZcIFTvLm64', imgSrc: youtube, tooltip: 'Watch my videos on YouTube' }
+        ].map(({ url, imgSrc, tooltip }, index) => (
           <li key={index} className='icon' onMouseMove={handleAppHover}>
-            <a href={href} target='_blank' rel='noopener noreferrer'>
-              <img src={`https://www.frontend.fyi/playground-assets/macos-dock/icons/${imgSrc}`} alt={tooltip} />
+            <Link to={url}>
+              <img src={imgSrc} alt={tooltip} />
               <span className='tooltip'>{tooltip}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

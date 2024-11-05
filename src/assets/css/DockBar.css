@@ -1,7 +1,7 @@
 .dock-bar {
   z-index: 9;
   position: fixed;
-  padding: 0 12px;
+  padding: 1px 12px;
   inset: auto auto 0;
   border-radius: 24px;
   margin: 0 auto .8rem;
@@ -60,6 +60,7 @@
   height: 100%;
   color: #fff;
   display: block;
+  overflow: hidden;
   border-radius: 12px;
 }
 
