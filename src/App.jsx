@@ -16,7 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 6000);
+    const timer = setTimeout(() => setLoading(false), 10000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,7 +32,6 @@ function App() {
         <Router>
           <Layout>
             <LoadTop />
-            <PageTop />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/blog' element={<Blog />} />
@@ -40,6 +39,7 @@ function App() {
               <Route path='/project' element={<Project />} />
               <Route path='/contact' element={<Contact />} />
             </Routes>
+            <PageTop />
           </Layout>
         </Router>
       )}
