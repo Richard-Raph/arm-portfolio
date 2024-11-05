@@ -11,9 +11,7 @@
 }
 
 :root {
-  --radius: 0.5rem;
   --primary: 0 0% 95%;
-  --border: 0 0% 14.9%;
   --accent: 0 0% 14.9%;
   --secondary: 0 0% 3.5%;
   --accentSec: 0 10% 10% 50%;
@@ -74,19 +72,4 @@ main {
   width: 100%;
   z-index: -1;
   height: 100%;
-}
-
-main .slant-text {
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  opacity: .55;
-  position: absolute;
-  text-align: center;
-  white-space: nowrap;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: hsla(var(--accentPri));
-  font-size: clamp(3rem, 15vw, 15rem);
-  transform: translate(-50%, -50%) rotate(-30deg);
 }

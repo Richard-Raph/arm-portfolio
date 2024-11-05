@@ -108,10 +108,10 @@
   position: absolute;
   font-size: .875rem;
   line-height: 1.25rem;
+  border-radius: .5rem;
   padding: .25rem .75rem;
   content: attr(data-title);
   color: hsl(var(--secondary));
-  border-radius: var(--radius);
   background: hsl(var(--primary));
 }
 
@@ -243,6 +243,7 @@
   }
 
   .dock-links:last-child {
+    height: 48px;
     box-shadow: none;
     flex-direction: row;
     background: transparent;

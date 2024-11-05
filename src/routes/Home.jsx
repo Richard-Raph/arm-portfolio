@@ -1,5 +1,4 @@
 import Hero from '../pages/HHero';
-import HAbout from '../pages/HAbout';
 import useDocumentTitle from '../helpers/useDocumentTitle';
 
 export default function Home() {
@@ -8,7 +7,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <HAbout />
     </main>
   );
 }

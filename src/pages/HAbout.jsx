@@ -1,4 +1,3 @@
-import '../assets/css/HAbout.css';
 import About from '../assets/images/f.png';
 import Doodle from '../assets/images/doodle.webp';
 import Typewriter from '../components/Typewriter';

@@ -15,6 +15,7 @@
 .circle div {
     inset: 10%;
     width: 50px;
+    z-index: -1;
     height: 50px;
     position: fixed;
     border-radius: 50px;
@@ -132,8 +133,8 @@
 }
 
 .scroll-top {
-    opacity: 0;
     width: 44px;
+    opacity: .5;
     height: 44px;
     display: grid;
     z-index: 99999;
@@ -146,11 +147,7 @@
 }
 
 .scroll-top:hover {
-    background-color: color-mix(in srgb, hsl(var(--secondary)), transparent 20%);
-}
-
-.scroll-top:hover svg {
-    color: hsl(var(--primary));
+    opacity: 1;
 }
 
 .scroll-top svg {
@@ -160,7 +157,21 @@
 }
 
 .scroll-top.active {
-    opacity: 1;
     bottom: 15px;
     visibility: visible;
+}
+
+.slant-text {
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    opacity: .55;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: hsla(var(--accentPri));
+    font-size: clamp(3rem, 15vw, 15rem);
+    transform: translate(-50%, -50%) rotate(-30deg);
 }
