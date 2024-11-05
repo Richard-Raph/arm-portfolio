@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <main>
       {/* <Hero /> */}
+      Never forget
     </main>
   );
 }

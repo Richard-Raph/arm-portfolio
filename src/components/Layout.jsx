@@ -2,6 +2,7 @@ import Grain from './Grain';
 import Footer from './Footer';
 import DockBar from './DockBar';
 import '../assets/css/Layout.css';
+import bg from '../assets/images/bg.webp';
 import PropTypes from 'prop-types';
 
 export default function Layout({ children }) {
@@ -24,24 +25,7 @@ export default function Layout({ children }) {
                     <circle cx='121.819' cy='83.613' r='1.7774' fill='#323232' stroke='white' />
                 </g>
             </svg>
-            <div className='circle'>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-                <div><span className='dot'></span></div>
-            </div>
+            <img src={bg} alt='background' />
             <Grain />
             <DockBar />
             {children}

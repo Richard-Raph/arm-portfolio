@@ -5,7 +5,6 @@
     padding: 50px 0;
     overflow: hidden;
     position: relative;
-    min-height: 100dvh;
     place-items: center;
     backdrop-filter: blur(2px);
     background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, hsl(var(--secondary)));
@@ -154,6 +153,7 @@
 
 .Hhero-detail {
     inset: 0;
+    z-index: 999;
     width: 100%;
     display: flex;
     position: relative;

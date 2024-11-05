@@ -64,18 +64,18 @@ body {
 
 main,
 #root {
-  width: 90%;
-  z-index: 9;
+  width: 100%;
   display: grid;
-  margin: 0 auto;
   position: relative;
-  min-height: 1000dvh;
+  min-height: 100dvh;
   place-items: center;
 }
 
-main {
+#root > img {
+  inset: 0;
   width: 100%;
   z-index: -1;
   height: 100%;
-  background-image: url('./assets/images/bg.webp');
+  position: fixed;
+  object-fit: cover;
 }

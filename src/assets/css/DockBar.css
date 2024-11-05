@@ -1,4 +1,5 @@
 .dock-bar {
+  z-index: 9;
   position: fixed;
   padding: 0 12px;
   inset: auto auto 0;
