@@ -13,29 +13,35 @@ import terminal from '../assets/images/terminal.webp';
 import instagram from '../assets/images/instagram.webp';
 
 const icons = [
-  { id: 'Home', imgSrc: home, tooltip: 'Home' },
-  { id: 'About', imgSrc: about, tooltip: 'About Me' },
-  { id: 'Contact', imgSrc: contact, tooltip: 'Contact' },
-  { id: 'Project', imgSrc: project, tooltip: 'Projects' },
-  { id: 'Blog', imgSrc: blog, tooltip: 'Follow my trends' },
-  { id: 'Terminal', imgSrc: terminal, tooltip: 'Hire me!' },
-  { id: 'Daily', imgSrc: daily, tooltip: 'Visit daily dev' },
-  { id: 'GitHub', imgSrc: github, tooltip: 'My github repos' },
-  { id: 'Twitter', imgSrc: twitter, tooltip: 'My twitter profile' },
-  { id: 'Instagram', imgSrc: instagram, tooltip: 'My instagram profile' },
-  { id: 'YouTube', imgSrc: youtube, tooltip: 'Watch my videos on YouTube' }
+  { id: 'Home', imgSrc: home, tooltip: 'Home', type: 'internal' },
+  { id: 'About', imgSrc: about, tooltip: 'About Me', type: 'internal' },
+  { id: 'Contact', imgSrc: contact, tooltip: 'Contact', type: 'internal' },
+  { id: 'Project', imgSrc: project, tooltip: 'Projects', type: 'internal' },
+  { id: 'Blog', imgSrc: blog, tooltip: 'Follow my trends', type: 'internal' },
+  { id: 'Terminal', imgSrc: terminal, tooltip: 'Hire me!', type: 'internal' }, // This might open internal content
+  { id: 'Daily Dev', imgSrc: daily, tooltip: 'Visit daily dev', type: 'external', url: 'https://www.dailydev.io/' },
+  { id: 'GitHub', imgSrc: github, tooltip: 'My GitHub repos', type: 'external', url: 'https://www.github.com' },
+  { id: 'Twitter', imgSrc: twitter, tooltip: 'My Twitter profile', type: 'external', url: 'https://www.x.com' },
+  { id: 'Instagram', imgSrc: instagram, tooltip: 'My Instagram profile', type: 'external', url: 'https://www.instagram.com' },
+  { id: 'YouTube', imgSrc: youtube, tooltip: 'Watch my videos on YouTube', type: 'external', url: 'https://www.youtube.com' }
 ];
 
 export default function DockBar({ openWindow, activeWindow }) {
-  const handleIconClick = (windowId) => openWindow(windowId);
+  const handleIconClick = (windowId, linkType, url) => {
+    if (linkType === 'internal') {
+      openWindow(windowId);  // Open internal content
+    } else if (linkType === 'external' && url) {
+      openWindow(windowId, url);  // Open external content inside the window
+    }
+  };
 
   return (
     <nav className='dock-bar'>
       <ul>
-        {icons.map(({ id, imgSrc, tooltip }, index) => (
+        {icons.map(({ id, imgSrc, tooltip, type, url }, index) => (
           <li
             key={index}
-            onClick={() => handleIconClick(id)}
+            onClick={() => handleIconClick(id, type, url)}
             className={`icon ${activeWindow === id ? 'active' : ''}`}
           >
             <img src={imgSrc} alt={tooltip} />

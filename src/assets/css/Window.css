@@ -113,6 +113,11 @@
     background-color: #101010b3;
 }
 
+.window-content iframe {
+    width: 100%;
+    height: 100%;
+}
+
 @keyframes move {
     from {
         opacity: 0.15;

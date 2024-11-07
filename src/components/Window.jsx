@@ -15,13 +15,13 @@ export default function Window({
 }) {
   const dragRef = useRef(null);
   const dragBarRef = useRef(null);
-  const [isMaximized, setIsMaximized] = useState(false); 
+  const [isMaximized, setIsMaximized] = useState(false);
   const [isBeingDragged, setIsBeingDragged] = useState(false);
   const [pos, setPos] = useState({ top: 'auto', left: 'auto' });
 
   useEffect(() => {
     if (isActive && !isBeingDragged && !isMaximized) {
-      if (pos.top !== 'auto' && pos.left !== 'auto') {
+      if (pos.top === 'auto' && pos.left === 'auto') {
         const windowWidth = dragRef.current?.offsetWidth || 300;
         const windowHeight = dragRef.current?.offsetHeight || 200;
         const centerLeft = window.innerWidth / 2 - windowWidth / 2;
@@ -32,19 +32,19 @@ export default function Window({
   }, [isActive, isBeingDragged, pos, isMaximized]);
 
   const handleClose = (e) => {
-    e.stopPropagation(); 
-    closeWindow(id);  // Close the window completely (remove it from the list)
+    e.stopPropagation();
+    closeWindow(id);
   };
 
-  const handleMouseDown = (e) => {
-    if (e.target.closest('.window-dots')) return;
+  const handleMouseDown = () => {
     setActive(id);
     setDraggedWindow(id);
   };
+  
 
   const handleMinimize = (e) => {
     e.stopPropagation();
-    minimizeWindow(id); // Keep minimize as is
+    minimizeWindow(id);
   };
 
   const handleMaximize = (e) => {
@@ -55,7 +55,6 @@ export default function Window({
 
   const handleDragStart = (e) => {
     if (isMaximized) return;
-    if (e.target.closest('.window-dots')) return;
     setIsBeingDragged(true);
 
     const initialTop = pos.top === 'auto' ? 0 : pos.top;
@@ -101,12 +100,14 @@ export default function Window({
             onMouseDown={handleDragStart}
           >
             <div className='window-dots'>
-              <button className='dot red' onClick={handleClose}></button>  {/* Close the window entirely */}
-              <button className='dot yellow' onClick={handleMinimize}></button> {/* Minimize as before */}
+              <button className='dot red' onClick={handleClose}></button>
+              <button className='dot yellow' onClick={handleMinimize}></button>
               <button className='dot green' onClick={handleMaximize}></button>
             </div>
           </div>
-          <div className='window-content'>{content}</div>
+          <div className='window-content'>
+            {typeof content === 'string' ? <iframe src={content} /> : content}
+          </div>
         </div>
       </div>
     </section>

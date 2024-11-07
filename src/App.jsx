@@ -19,7 +19,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const openWindow = (windowName) => {
+  const openWindow = (windowName, url) => {
     const existingWindow = windows.find((window) => window.name === windowName);
 
     if (existingWindow) {
@@ -31,7 +31,7 @@ function App() {
         id: Date.now(),
         isActive: true,
         name: windowName,
-        content: windowContent(windowName),
+        content: url ? <iframe src={url} title={windowName} /> : windowContent(windowName),
       };
       setWindows((prevWindows) => [...prevWindows, newWindow]);
       setActiveWindow(newWindow.id);  // Set the new window as active
@@ -49,10 +49,9 @@ function App() {
   };
 
   const closeWindow = (windowId) => {
-    // Remove the window entirely from the list
     setWindows((prevWindows) => prevWindows.filter((window) => window.id !== windowId));
     if (activeWindow === windowId) {
-      setActiveWindow(null); // Deactivate if it's the active window
+      setActiveWindow(null);
     }
   };
 
