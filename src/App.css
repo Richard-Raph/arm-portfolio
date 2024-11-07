@@ -58,8 +58,8 @@ button,
 body {
   width: 100%;
   height: 100dvh;
+  overflow: hidden;
   position: relative;
-  overflow-x: hidden;
 }
 
 main,
@@ -69,6 +69,10 @@ main,
   height: 100dvh;
   position: relative;
   place-items: center;
+}
+
+main {
+  display: block;
 }
 
 main > img {

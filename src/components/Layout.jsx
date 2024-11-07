@@ -1,11 +1,15 @@
-import Grain from './Grain';
-import StatBar from './StatBar';
-import DockBar from './DockBar';
+import Menu from './Menu';
+import Dock from './Dock';
 import '../assets/css/Layout.css';
 import PropTypes from 'prop-types';
 import bg from '../assets/images/bg.webp';
 
-export default function Layout({ children }) {
+export default function Layout({
+    windows,
+    children,
+    openWindow,
+    activeWindow,
+}) {
     return (
         <>
             <svg width='219' height='147' viewBox='0 0 219 147' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -25,17 +29,19 @@ export default function Layout({ children }) {
                     <circle cx='121.819' cy='83.613' r='1.7774' fill='#323232' stroke='white' />
                 </g>
             </svg>
-            <Grain />
-            <StatBar />
+            <Menu activeWindow={activeWindow} windows={windows} />
             <main>
                 {children}
                 <img src={bg} alt='background' />
             </main>
-            <DockBar />
+            <Dock openWindow={openWindow} />
         </>
     );
 }
 
 Layout.propTypes = {
+    windows: PropTypes.array.isRequired,
     children: PropTypes.node.isRequired,
+    openWindow: PropTypes.func.isRequired,
+    activeWindow: PropTypes.number.isRequired,
 };
