@@ -15,13 +15,13 @@ export default function Window({
 }) {
     const dragRef = useRef(null);
     const dragBarRef = useRef(null);
-    const [isMaximized, setIsMaximized] = useState(false);
+    const [isMaximized, setIsMaximized] = useState(false); // Track whether the window is maximized
     const [isBeingDragged, setIsBeingDragged] = useState(false);
     const [pos, setPos] = useState({ top: 'auto', left: 'auto' }); // Initial position is 'auto'
 
     // Effect to re-center window when activated and not being dragged
     useEffect(() => {
-        if (isActive && !isBeingDragged) {
+        if (isActive && !isBeingDragged && !isMaximized) {
             // Only re-center if the position is not 'auto' (meaning it was dragged previously)
             if (pos.top !== 'auto' && pos.left !== 'auto') {
                 const windowWidth = dragRef.current?.offsetWidth || 300;
@@ -31,28 +31,39 @@ export default function Window({
                 setPos({ top: centerTop, left: centerLeft });
             }
         }
-    }, [isActive, isBeingDragged, pos]);
+    }, [isActive, isBeingDragged, pos, isMaximized]);
 
-    // Function to handle closing the window
-    const handleClose = () => closeWindow(id);
+    // Handle closing the window
+    const handleClose = (e) => {
+        e.stopPropagation(); // Prevent triggering window drag
+        closeWindow(id);
+    };
 
-    // Function to handle activating the window on mouse down anywhere in the window
-    const handleMouseDown = () => {
+    // Handle activating the window on mouse down anywhere in the window (but not on buttons)
+    const handleMouseDown = (e) => {
+        // Prevent dragging if the click happened on the buttons (red, yellow, or green dots)
+        if (e.target.closest('.dot')) return; // Do not drag if clicking on the button
         setActive(id);
         setDraggedWindow(id); // Set this window as the dragged window
     };
 
-    // Function to minimize the window
-    const handleMinimize = () => minimizeWindow(id);
+    // Handle minimizing the window
+    const handleMinimize = (e) => {
+        e.stopPropagation(); // Prevent triggering window drag
+        minimizeWindow(id);
+    };
 
-    // Function to maximize the window
-    const handleMaximize = () => {
-        setIsMaximized(!isMaximized);
-        maximizeWindow(id);
+    // Handle maximizing the window
+    const handleMaximize = (e) => {
+        e.stopPropagation(); // Prevent triggering window drag
+        setIsMaximized((prev) => !prev); // Toggle maximized state
+        maximizeWindow(id); // Call the maximize function passed in props
     };
 
     // Dragging functionality (only triggered from the window bar)
     const handleDragStart = (e) => {
+        if (isMaximized) return; // Don't allow dragging when maximized
+
         setIsBeingDragged(true);
 
         // Get the current position of the window (either 'auto' or calculated)
@@ -86,12 +97,12 @@ export default function Window({
     return (
         <section
             ref={dragRef}
-            onMouseDown={handleMouseDown}
+            onMouseDown={handleMouseDown} // Activate dragging only if not clicking on buttons
             style={{
-                top: isBeingDragged ? `${pos.top}px` : `${pos.top}px`, // Maintain top/left if not dragged
-                left: isBeingDragged ? `${pos.left}px` : `${pos.left}px`,
+                top: isMaximized ? 'auto' : `${pos.top}px`,
+                left: isMaximized ? 'auto' : `${pos.left}px`,
             }}
-            className={`window ${isActive ? 'active' : ''} ${isMaximized ? 'maximized' : ''}`}
+            className={`window ${isActive ? 'active' : ''} ${isMaximized ? 'max' : ''}`}
         >
             <span className='glare outer'></span>
             <div className='window-outline'>
@@ -100,11 +111,13 @@ export default function Window({
                     <div
                         ref={dragBarRef}
                         className='window-bar'
-                        onMouseDown={(e) => handleDragStart(e)} // Dragging only starts when clicking the bar
+                        onMouseDown={handleDragStart} // Only start dragging from the window bar
                     >
-                        <span className='dot red' onClick={handleClose}></span>
-                        <span className='dot yellow' onClick={handleMinimize}></span>
-                        <span className='dot green' onClick={handleMaximize}></span>
+                        <div className='window-dots'>
+                            <button className='dot red' onClick={handleClose}></button>
+                            <button className='dot yellow' onClick={handleMinimize}></button>
+                            <button className='dot green' onClick={handleMaximize}></button>
+                        </div>
                     </div>
                     <div className='window-content'>{content}</div>
                 </div>

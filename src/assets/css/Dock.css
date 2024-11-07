@@ -4,7 +4,7 @@
   padding: 1px 12px;
   position: absolute;
   border-radius: 24px;
-  margin: 0 auto .8rem;
+  margin: 0 auto .5rem;
   box-shadow: rgba(255, 255, 255, 0.17) 0px 0px 0px 1px inset;
   background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.15));
 }
