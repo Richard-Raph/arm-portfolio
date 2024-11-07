@@ -70,18 +70,19 @@
 
 .window-bar .window-dots {
     gap: 12px;
-    z-index: 1;
+    z-index: 9;
     height: 100%;
     display: flex;
-    padding: 0 2rem;
     width: max-content;
     position: relative;
     align-items: center;
+    padding: 0 1rem 0 2rem;
 }
 
 .window-dots .dot {
     width: 12px;
     height: 12px;
+    display: block;
     border-radius: 100px;
 }
 

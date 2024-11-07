@@ -34,7 +34,7 @@ export default function Layout({
                 {children}
                 <img src={bg} alt='background' />
             </main>
-            <Dock openWindow={openWindow} />
+            <Dock openWindow={openWindow} activeWindow={activeWindow} />
         </>
     );
 }

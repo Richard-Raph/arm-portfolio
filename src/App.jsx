@@ -13,7 +13,6 @@ function App() {
   const [windows, setWindows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeWindow, setActiveWindow] = useState(null);
-  const [draggedWindow, setDraggedWindow] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 10000);
@@ -21,18 +20,22 @@ function App() {
   }, []);
 
   const openWindow = (windowName) => {
-    if (windows.some((window) => window.name === windowName)) return;
+    const existingWindow = windows.find((window) => window.name === windowName);
 
-    const newWindow = {
-      id: Date.now(),
-      isActive: false,
-      name: windowName,
-      isMinimized: false,
-      isMaximized: false,
-      content: windowContent(windowName),
-    };
-    setWindows((prevWindows) => [...prevWindows, newWindow]);
-    setActiveWindow(newWindow.id);
+    if (existingWindow) {
+      // Activate the window if it's already open
+      setActiveWindow(existingWindow.id);
+    } else {
+      // Create a new window if it doesn't exist
+      const newWindow = {
+        id: Date.now(),
+        isActive: true,
+        name: windowName,
+        content: windowContent(windowName),
+      };
+      setWindows((prevWindows) => [...prevWindows, newWindow]);
+      setActiveWindow(newWindow.id);  // Set the new window as active
+    }
   };
 
   const setActive = (windowId) => {
@@ -46,28 +49,11 @@ function App() {
   };
 
   const closeWindow = (windowId) => {
+    // Remove the window entirely from the list
     setWindows((prevWindows) => prevWindows.filter((window) => window.id !== windowId));
     if (activeWindow === windowId) {
-      setActiveWindow(null);
+      setActiveWindow(null); // Deactivate if it's the active window
     }
-  };
-
-  const minimizeWindow = (windowId) => {
-    setWindows((prevWindows) =>
-      prevWindows.map((window) => ({
-        ...window,
-        isMinimized: window.id === windowId ? true : window.isMinimized,
-      }))
-    );
-  };
-
-  const maximizeWindow = (windowId) => {
-    setWindows((prevWindows) =>
-      prevWindows.map((window) => ({
-        ...window,
-        isMaximized: window.id === windowId ? !window.isMaximized : window.isMaximized,
-      }))
-    );
   };
 
   const windowContent = (windowName) => {
@@ -94,26 +80,21 @@ function App() {
       ) : (
         <Layout
           windows={windows}
-          setActive={setActive}
           openWindow={openWindow}
-          closeWindow={closeWindow}
           activeWindow={activeWindow}
-          minimizeWindow={minimizeWindow}
-          maximizeWindow={maximizeWindow}
         >
           {windows.map((window) => (
             <Window
-              key={window.id}
               id={window.id}
+              key={window.id}
               name={window.name}
               setActive={setActive}
               content={window.content}
               closeWindow={closeWindow}
-              minimizeWindow={minimizeWindow}
-              maximizeWindow={maximizeWindow}
-              setDraggedWindow={setDraggedWindow}
+              minimizeWindow={() => {}}
+              maximizeWindow={() => {}}
+              setDraggedWindow={() => {}}
               isActive={window.id === activeWindow}
-              isDragged={draggedWindow === window.id}
             />
           ))}
         </Layout>

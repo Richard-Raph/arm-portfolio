@@ -26,14 +26,18 @@ const icons = [
   { id: 'YouTube', imgSrc: youtube, tooltip: 'Watch my videos on YouTube' }
 ];
 
-export default function DockBar({ openWindow }) {
-  const handleIconClick = windowId => openWindow(windowId); // Pass window ID on click
+export default function DockBar({ openWindow, activeWindow }) {
+  const handleIconClick = (windowId) => openWindow(windowId);
 
   return (
     <nav className='dock-bar'>
       <ul>
         {icons.map(({ id, imgSrc, tooltip }, index) => (
-          <li key={index} className='icon' onClick={() => handleIconClick(id)}>
+          <li
+            key={index}
+            onClick={() => handleIconClick(id)}
+            className={`icon ${activeWindow === id ? 'active' : ''}`}
+          >
             <img src={imgSrc} alt={tooltip} />
             <span className='tooltip'>{tooltip}</span>
           </li>
@@ -45,4 +49,5 @@ export default function DockBar({ openWindow }) {
 
 DockBar.propTypes = {
   openWindow: PropTypes.func.isRequired,
+  activeWindow: PropTypes.string.isRequired,
 };
