@@ -13,6 +13,7 @@ function App() {
   const [windows, setWindows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeWindow, setActiveWindow] = useState(null);
+  const [draggedWindow, setDraggedWindow] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 10000);
@@ -24,13 +25,14 @@ function App() {
 
     const newWindow = {
       id: Date.now(),
-      name: windowName,
-      content: windowName,
       isActive: false,
+      name: windowName,
       isMinimized: false,
       isMaximized: false,
+      content: windowContent(windowName),
     };
-    setWindows([...windows, newWindow]);
+    setWindows((prevWindows) => [...prevWindows, newWindow]);
+    setActiveWindow(newWindow.id);
   };
 
   const setActive = (windowId) => {
@@ -101,15 +103,17 @@ function App() {
         >
           {windows.map((window) => (
             <Window
-              id={window.id}
               key={window.id}
+              id={window.id}
               name={window.name}
               setActive={setActive}
+              content={window.content}
               closeWindow={closeWindow}
-              isActive={window.isActive}
               minimizeWindow={minimizeWindow}
               maximizeWindow={maximizeWindow}
-              content={windowContent(window.name)}
+              setDraggedWindow={setDraggedWindow}
+              isActive={window.id === activeWindow}
+              isDragged={draggedWindow === window.id}
             />
           ))}
         </Layout>

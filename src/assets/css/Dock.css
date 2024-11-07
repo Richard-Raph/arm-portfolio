@@ -1,11 +1,11 @@
 .dock-bar {
+  bottom: 0;
   z-index: 9;
-  position: fixed;
   padding: 1px 12px;
-  inset: auto auto 0;
+  position: absolute;
   border-radius: 24px;
   margin: 0 auto .8rem;
-  box-shadow:rgba(255, 255, 255, 0.17) 0px 0px 0px 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.17) 0px 0px 0px 1px inset;
   background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.15));
 }
 
@@ -17,6 +17,7 @@
   width: 55px;
   height: 55px;
   position: relative;
+  cursor: url('../cursors/pointer.png'), pointer;
   transition: width, height, margin-top, cubic-bezier(0.25, 1, 0.5, 1) 100ms;
 }
 
@@ -85,7 +86,7 @@
   box-shadow:rgba(0, 0, 0, 0.17) 0px 12px 8px 1px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 800px) {
   .mobile-message {
     display: flex;
   }

@@ -29,18 +29,12 @@
   color: rgba(255, 255, 255, 0.87);
 }
 
-.text {
-  cursor: url('./assets/cursors/text.png'), text;
-}
-
 .loading {
   cursor: url('./assets/cursors/loading.png'), wait;
 }
 
 a,
-a *,
-button,
-.pointer {
+button {
   cursor: url('./assets/cursors/pointer.png'), pointer;
 }
 
@@ -65,14 +59,12 @@ body {
 main,
 #root {
   width: 100%;
-  display: grid;
-  height: 100dvh;
+  height: 100%;
+  display: flex;
   position: relative;
-  place-items: center;
-}
-
-main {
-  display: block;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 main > img {

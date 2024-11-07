@@ -1,23 +1,42 @@
-.stat-bar {
+.menu-bar {
+    top: 0;
     z-index: 9;
     width: 100%;
     height: 50px;
     display: flex;
-    position: fixed;
     padding: 1px 12px;
+    position: relative;
     align-items: center;
-    inset: 0 auto auto 0;
     justify-content: space-between;
     box-shadow: rgba(255, 255, 255, 0.17) 0px 0px 0px 1px inset;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15));
 }
 
-.stat-bar div {
-    gap: 10px;
+.menu-bar .info,
+.menu-bar .stats {
+    gap: 15px;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.stat-bar div span {
+.menu-bar .stats {
+    display: none;
+}
+
+.menu-bar .stats span {
     font-size: .9rem;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .menu-bar .info,
+    .menu-bar .stats {
+        width: max-content;
+    }
+
+    .menu-bar .stats {
+        display: flex;
+    }
 }
