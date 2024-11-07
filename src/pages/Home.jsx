@@ -1,13 +1,12 @@
-import Hero from '../pages/HHero';
+import Window from '../components/Window';
 import useDocumentTitle from '../helpers/useDocumentTitle';
 
 export default function Home() {
   useDocumentTitle('Home 🏠 Richard Raphael');
 
   return (
-    <main>
-      {/* <Hero /> */}
-      Never forget
-    </main>
+    <Window>
+      Home
+    </Window>
   );
 }

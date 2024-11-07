@@ -1,0 +1,130 @@
+.window {
+    width: 70%;
+    z-index: 1;
+    height: 70%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 24px;
+}
+
+.glare {
+    height: 1px;
+    display: block;
+    margin-bottom: -1px;
+    background-image: linear-gradient(to right, transparent 10%, white 50%, transparent 90%);
+}
+
+.glare.inner {
+    height: 2px;
+    margin-bottom: -2px;
+}
+
+.window-outline {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    position: absolute;
+    border-radius: 24px;
+    outline-offset: -1px;
+    outline: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 8px #0006, 0 0 60px #0003, 0 30px 120px #000c;
+    background-image: radial-gradient(circle farthest-side at 50% 0, #f2f2f233, #0000);
+}
+
+.window-main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 10px #0000001a, 0 0 12px #0006;
+}
+
+.window-bar {
+    gap: 10px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    backdrop-filter: blur(40px);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 10px 20px 4px #0006;
+    background-image: linear-gradient(to right, #f2f2f21a, #f2f2f280 50%, #f2f2f21a);
+}
+
+.window-bar .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+}
+
+.window-bar .dot.red {
+    background-color: #f46b5d;
+    box-shadow: 0 0 20px 2px #f46b5d;
+}
+
+.window-bar .dot.yellow {
+    background-color: #f9bd4e;
+    box-shadow: 0 0 20px 2px #f9bd4e;
+}
+
+.window-bar .dot.green {
+    background-color: #57c353;
+    box-shadow: 0 0 20px 2px #57c353;
+}
+
+.window-content {
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    column-gap: 40px;
+    user-select: none;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #101010b3;
+}
+
+.window-content .slant-text {
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.window-content {
+    gap: 10px;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+@keyframes move {
+    from {
+        opacity: 0.15;
+        transform: translate3d(-25vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
+    }
+
+    to {
+        opacity: 0.15;
+        transform: translate3d(225vw, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(15deg) skew(0, 0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media all and (min-width: 750px) {
+    
+}

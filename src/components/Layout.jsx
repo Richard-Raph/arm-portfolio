@@ -1,9 +1,9 @@
 import Grain from './Grain';
-import Footer from './Footer';
+import StatBar from './StatBar';
 import DockBar from './DockBar';
 import '../assets/css/Layout.css';
-import bg from '../assets/images/bg.webp';
 import PropTypes from 'prop-types';
+import bg from '../assets/images/bg.webp';
 
 export default function Layout({ children }) {
     return (
@@ -25,11 +25,13 @@ export default function Layout({ children }) {
                     <circle cx='121.819' cy='83.613' r='1.7774' fill='#323232' stroke='white' />
                 </g>
             </svg>
-            <img src={bg} alt='background' />
             <Grain />
+            <StatBar />
+            <main>
+                {children}
+                <img src={bg} alt='background' />
+            </main>
             <DockBar />
-            {children}
-            <Footer />
         </>
     );
 }

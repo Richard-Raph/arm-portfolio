@@ -14,40 +14,40 @@
 }
 
 .icon {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   position: relative;
   transition: width, height, margin-top, cubic-bezier(0.25, 1, 0.5, 1) 100ms;
 }
 
 .icon:hover {
-  width: 90px;
-  height: 90px;
-  margin-top: -30px;
+  width: 80px;
+  height: 80px;
+  margin-top: -25px;
 }
 
 .icon:hover + .icon {
-  width: calc(80px + var(--dock-offset-right, 0px));
-  height: calc(80px + var(--dock-offset-right, 0px));
-  margin-top: calc(-20px + var(--dock-offset-right, 0px) * -1);
+  width: calc(80px + var(--dock-right, 0px));
+  height: calc(80px + var(--dock-right, 0px));
+  margin-top: calc(-20px + var(--dock-right, 0px) * -1);
 }
 
 .icon:hover + .icon + .icon {
-  width: calc(70px + var(--dock-offset-right, 0px));
-  height: calc(70px + var(--dock-offset-right, 0px));
-  margin-top: calc(-10px + var(--dock-offset-right, 0px) * -1);
+  width: calc(70px + var(--dock-right, 0px));
+  height: calc(70px + var(--dock-right, 0px));
+  margin-top: calc(-10px + var(--dock-right, 0px) * -1);
 }
 
 .icon:has(+ .icon:hover){
-  width: calc(80px + var(--dock-offset-left, 0px));
-  height: calc(80px + var(--dock-offset-left, 0px));
-  margin-top: calc(-20px + var(--dock-offset-left, 0px) * -1);
+  width: calc(80px + var(--dock-left, 0px));
+  height: calc(80px + var(--dock-left, 0px));
+  margin-top: calc(-20px + var(--dock-left, 0px) * -1);
 }
 
 .icon:has(+ .icon + .icon:hover){
-  width: calc(70px + var(--dock-offset-left, 0px));
-  height: calc(70px + var(--dock-offset-left, 0px));
-  margin-top: calc(-10px + var(--dock-offset-left, 0px) * -1);
+  width: calc(70px + var(--dock-left, 0px));
+  height: calc(70px + var(--dock-left, 0px));
+  margin-top: calc(-10px + var(--dock-left, 0px) * -1);
 }
 
 .icon img {

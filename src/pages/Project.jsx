@@ -1,11 +1,12 @@
+import Window from '../components/Window';
 import useDocumentTitle from '../helpers/useDocumentTitle';
 
-export default function Project() {
+export default function Projects() {
   useDocumentTitle('Projects 🖥 Richard Raphael');
 
   return (
-    <main>
-
-    </main>
+    <Window>
+      Projects
+    </Window>
   );
 }
